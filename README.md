@@ -28,20 +28,22 @@ cp .env.example .env.local
 npm run dev                     # http://localhost:3000
 ```
 
-Without `RESEND_API_KEY`, emails are **printed to the terminal** instead of sent, so you can test the flow locally.
+Without email settings, emails are **printed to the terminal** instead of sent, so you can test the flow locally.
 
 ### Receiving real applications
 
-1. Create a free account at [resend.com](https://resend.com) and verify your domain.
-2. In `.env.local` (and in your hosting provider's environment variables):
-   ```bash
-   RESEND_API_KEY=re_xxxxxxxx
-   EMAIL_FROM="getKerja <hr@getkerja.my>"
-   APPLICATIONS_EMAIL=hr@getkerja.my
-   ```
-3. Restart the server. Applications will now arrive in that inbox with the CV attached.
+The site sends email through your **Hostinger mailbox** (hr@getkerja.my) over SMTP. Add these in **Vercel → Settings → Environment Variables**, then redeploy:
 
-To use another provider (Gmail SMTP, AWS SES, Postmark…), replace the `fetch` call in `src/lib/email.ts`.
+```bash
+SMTP_HOST=smtp.hostinger.com
+SMTP_PORT=465
+SMTP_USER=hr@getkerja.my
+SMTP_PASS=<the hr@getkerja.my mailbox password>
+```
+
+Applications (CV attached) and contact messages arrive at hr@getkerja.my. Candidates receive a confirmation from the same address.
+
+Alternatively, set `RESEND_API_KEY` to use [Resend](https://resend.com) (used only when SMTP isn't configured). Locally, with neither set, emails are printed to the terminal.
 
 ---
 
