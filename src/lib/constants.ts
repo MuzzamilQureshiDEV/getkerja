@@ -5,8 +5,8 @@ export const SITE = {
   description:
     "Find remote jobs open to candidates across Malaysia. Pick a role, send your CV in one simple form, and interview online — no account needed.",
   email: "hello@getkerja.my",
-  /** Where new applications (with CV attached) are emailed. Override with APPLICATIONS_EMAIL. */
-  applicationsEmail: process.env.APPLICATIONS_EMAIL ?? "careers@getkerja.my",
+  /** Inbox for new applications (CV attached) and contact-form messages. Override with APPLICATIONS_EMAIL. */
+  applicationsEmail: process.env.APPLICATIONS_EMAIL ?? "info@websaura.com",
   phone: "+60 3-2700 1234",
   whatsapp: "60123456789",
   address: {
