@@ -1,0 +1,118 @@
+// getKerja — OPTIONAL database schema (PostgreSQL).
+//
+// The site works without a database: jobs come from src/lib/data/seed.ts and
+// applications are emailed straight to your recruitment inbox. Use this schema only if
+// you want to manage jobs from a database/admin tool (e.g. Prisma Studio) or keep a
+// log of applications. See README → "Managing jobs".
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+  FREELANCE
+}
+
+enum ExperienceLevel {
+  ENTRY
+  JUNIOR
+  MID
+  SENIOR
+  MANAGER
+}
+
+enum JobStatus {
+  ACTIVE
+  CLOSED
+}
+
+model Company {
+  id       String  @id @default(cuid())
+  slug     String  @unique
+  name     String
+  industry String?
+  size     String?
+  website  String?
+  about    String?
+  verified Boolean @default(false)
+  color    String  @default("#4F46E5")
+  logo     String? // image URL
+  jobs     Job[]
+}
+
+model Category {
+  id     String  @id @default(cuid())
+  slug   String  @unique
+  name   String
+  nameMs String? // Bahasa Malaysia label
+  icon   String?
+  jobs   Job[]
+}
+
+/// Every job is remote (open to candidates anywhere in Malaysia).
+model Job {
+  id               String          @id @default(cuid())
+  slug             String          @unique
+  title            String
+  summary          String
+  description      String
+  responsibilities String[]
+  requirements     String[]
+  benefits         String[]
+  skills           String[]
+  type             JobType
+  experience       ExperienceLevel
+  salaryMin        Int? // RM per month
+  salaryMax        Int?
+  status           JobStatus       @default(ACTIVE)
+  featured         Boolean         @default(false)
+  urgent           Boolean         @default(false)
+  deadline         DateTime?
+  postedAt         DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+
+  companyId    String
+  company      Company        @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  categoryId   String
+  category     Category       @relation(fields: [categoryId], references: [id])
+  applications ApplicationLog[]
+
+  @@index([status, postedAt])
+}
+
+/// Optional record of each emailed application (the CV itself stays in your inbox).
+model ApplicationLog {
+  id        String   @id @default(cuid())
+  jobId     String
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  name      String
+  email     String
+  phone     String
+  consentAt DateTime @default(now()) // PDPA consent timestamp
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  topic     String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  email     String   @id
+  createdAt DateTime @default(now())
+}
