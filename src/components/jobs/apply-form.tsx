@@ -13,16 +13,21 @@ import { Field, FormMessage } from "@/components/forms/field";
 import { FileDrop } from "@/components/forms/file-drop";
 import { useFormAction } from "@/hooks/use-form-action";
 import { applyAction } from "@/lib/actions/apply";
-import { CV_MAX_BYTES, FEE_TEXT, SELECTION } from "@/lib/constants";
+import { CV_MAX_BYTES, FEE_TEXT, MY_STATES, NOTICE_PERIODS, OTHER, SALARY_RANGES, SELECTION } from "@/lib/constants";
+import { formatMyMobile, myMobileDigits } from "@/lib/phone";
 import type { ActionState } from "@/lib/types";
 
-export type JobOption = { id: string; title: string; company: string };
+export type JobOption = { id: string; title: string };
 type Applied = { jobTitle: string; email: string };
 
 export function ApplyForm({ jobs, defaultJobId }: { jobs: JobOption[]; defaultJobId?: string }) {
   const [state, onSubmit, pending] = useFormAction<ActionState<Applied>>(applyAction, { ok: false });
   const [jobId, setJobId] = useState(jobs.some((j) => j.id === defaultJobId) ? defaultJobId! : "");
   const [coverLen, setCoverLen] = useState(0);
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+  const [salary, setSalary] = useState("");
+  const [notice, setNotice] = useState("");
   const fe = state.fieldErrors ?? {};
 
   if (state.ok && state.data) {
@@ -47,7 +52,7 @@ export function ApplyForm({ jobs, defaultJobId }: { jobs: JobOption[]; defaultJo
           <li className="flex gap-3 rounded-2xl bg-secondary/60 p-4"><CalendarCheck className="size-5 shrink-0 text-coral" aria-hidden />If you’re shortlisted, we’ll reply by email with a Google Meet link for your online interview. Based on the interview, a {FEE_TEXT} selection fee locks in your place.</li>
           <li className="flex gap-3 rounded-2xl bg-secondary/60 p-4"><CheckCircle2 className="size-5 shrink-0 text-success" aria-hidden />Selected candidates receive their job offer within {SELECTION.offerDays} working days.</li>
         </ol>
-        <Button asChild size="lg" variant="outline"><Link href="/jobs">Browse more remote jobs</Link></Button>
+        <Button asChild size="lg" variant="outline"><Link href="/jobs">Browse more remote roles</Link></Button>
       </motion.div>
     );
   }
@@ -69,11 +74,29 @@ export function ApplyForm({ jobs, defaultJobId }: { jobs: JobOption[]; defaultJo
           <Field id="email" label="Email" required error={fe.email} hint="We’ll send your interview link here">
             {(p) => <Input {...p} name="email" type="email" autoComplete="email" inputMode="email" />}
           </Field>
-          <Field id="phone" label="Mobile number" required error={fe.phone} hint="e.g. 012-345 6789">
-            {(p) => <Input {...p} name="phone" type="tel" autoComplete="tel" inputMode="tel" />}
+          <Field id="phone" label="Mobile number" required error={fe.phone} hint="Malaysian mobile, e.g. 12-345 6789">
+            {(p) => (
+              <div className="relative">
+                <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center border-r px-3.5 text-sm font-medium text-muted-foreground">+60</span>
+                <Input
+                  {...p}
+                  name="phone"
+                  type="tel"
+                  inputMode="numeric"
+                  autoComplete="tel-national"
+                  maxLength={12}
+                  placeholder="12-345 6789"
+                  value={phone}
+                  onChange={(e) => setPhone(formatMyMobile(myMobileDigits(e.target.value)))}
+                  className="pl-16"
+                />
+              </div>
+            )}
           </Field>
-          <Field id="location" label="Where are you based?" required error={fe.location} hint="City / state, e.g. Ipoh, Perak">
-            {(p) => <Input {...p} name="location" autoComplete="address-level2" />}
+          <Field id="location" label="Where are you based?" required error={fe.location}>
+            {(p) => (
+              <ChoiceSelect {...p} name="location" value={location} onChange={setLocation} placeholder="Choose your state" options={MY_STATES} />
+            )}
           </Field>
         </div>
         <Field id="cv" label="CV / résumé" required error={fe.cv}>
@@ -92,18 +115,18 @@ export function ApplyForm({ jobs, defaultJobId }: { jobs: JobOption[]; defaultJo
         </Field>
       </Section>
 
-      <Section n={2} title="Select the job">
-        <Field id="jobId" label="Which remote job are you applying for?" required error={fe.jobId}>
+      <Section n={2} title="Select the role">
+        <Field id="jobId" label="Which remote role are you interested in?" required error={fe.jobId}>
           {(p) => (
             <>
               <input type="hidden" name="jobId" value={jobId} />
               <Select value={jobId} onValueChange={setJobId}>
                 <SelectTrigger id={p.id} aria-invalid={p["aria-invalid"]} aria-describedby={p["aria-describedby"]} className="w-full">
-                  <SelectValue placeholder="Choose a job" />
+                  <SelectValue placeholder="Choose a role" />
                 </SelectTrigger>
                 <SelectContent position="popper" className="max-h-80">
                   {jobs.map((j) => (
-                    <SelectItem key={j.id} value={j.id}>{j.title} — {j.company}</SelectItem>
+                    <SelectItem key={j.id} value={j.id}>{j.title}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>
@@ -111,11 +134,29 @@ export function ApplyForm({ jobs, defaultJobId }: { jobs: JobOption[]; defaultJo
           )}
         </Field>
         <div className="grid gap-5 sm:grid-cols-3">
-          <Field id="expectedSalary" label="Expected salary (RM / month)" error={fe.expectedSalary}>
-            {(p) => <Input {...p} name="expectedSalary" type="number" inputMode="numeric" min={0} step={100} placeholder="e.g. 5000" />}
+          <Field id="salary" label="Expected salary (per month)" error={fe.salary ?? fe.salaryOther}>
+            {(p) => (
+              <div className="flex flex-col gap-2">
+                <ChoiceSelect {...p} name="salary" value={salary} onChange={setSalary} placeholder="Choose a range" options={SALARY_RANGES} otherLabel="Other — type amount" />
+                {salary === OTHER && (
+                  <div className="relative">
+                    <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3.5 text-sm font-medium text-muted-foreground">RM</span>
+                    <Input name="salaryOther" inputMode="numeric" maxLength={7} placeholder="e.g. 3500" aria-label="Expected salary in RM per month" aria-invalid={fe.salaryOther ? true : undefined} className="pl-12" autoFocus
+                      onChange={(e) => { e.target.value = e.target.value.replace(/\D/g, ""); }} />
+                  </div>
+                )}
+              </div>
+            )}
           </Field>
-          <Field id="noticePeriod" label="Notice period" error={fe.noticePeriod}>
-            {(p) => <Input {...p} name="noticePeriod" placeholder="e.g. 1 month / Immediate" />}
+          <Field id="notice" label="Notice period" error={fe.notice ?? fe.noticeOther}>
+            {(p) => (
+              <div className="flex flex-col gap-2">
+                <ChoiceSelect {...p} name="notice" value={notice} onChange={setNotice} placeholder="Choose" options={NOTICE_PERIODS} otherLabel="Other — type it" />
+                {notice === OTHER && (
+                  <Input name="noticeOther" maxLength={40} placeholder="e.g. 6 weeks" aria-label="Your notice period" aria-invalid={fe.noticeOther ? true : undefined} autoFocus />
+                )}
+              </div>
+            )}
           </Field>
           <Field id="linkedin" label="LinkedIn / portfolio" error={fe.linkedin}>
             {(p) => <Input {...p} name="linkedin" type="url" inputMode="url" placeholder="Optional" />}
@@ -153,5 +194,36 @@ function Section({ n, title, children }: { n: number; title: string; children: R
       </h2>
       {children}
     </fieldset>
+  );
+}
+
+/** Dropdown that posts its value through a hidden input; optional "Other" choice. */
+function ChoiceSelect({
+  id, name, value, onChange, placeholder, options, otherLabel, ...aria
+}: {
+  id: string;
+  name: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder: string;
+  options: readonly string[];
+  otherLabel?: string;
+  "aria-invalid"?: boolean;
+  "aria-describedby"?: string;
+  required?: boolean;
+}) {
+  return (
+    <>
+      <input type="hidden" name={name} value={value} />
+      <Select value={value} onValueChange={onChange}>
+        <SelectTrigger id={id} aria-invalid={aria["aria-invalid"]} aria-describedby={aria["aria-describedby"]} className="w-full">
+          <SelectValue placeholder={placeholder} />
+        </SelectTrigger>
+        <SelectContent position="popper" className="max-h-72">
+          {options.map((o) => <SelectItem key={o} value={o}>{o}</SelectItem>)}
+          {otherLabel && <SelectItem value={OTHER}>{otherLabel}</SelectItem>}
+        </SelectContent>
+      </Select>
+    </>
   );
 }

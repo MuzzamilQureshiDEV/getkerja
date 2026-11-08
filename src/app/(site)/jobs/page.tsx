@@ -10,7 +10,6 @@ import { PageHero } from "@/components/shared/page-hero";
 import { categoryName } from "@/lib/constants";
 import { db } from "@/lib/db";
 import type { JobSearchParams } from "@/lib/types";
-import { SampleNotice } from "@/components/shared/sample-notice";
 
 const KEYS: (keyof JobSearchParams)[] = ["q", "category", "type", "experience", "salary", "posted", "sort", "page"];
 
@@ -50,18 +49,17 @@ export default async function JobsPage({ searchParams }: PageProps<"/jobs">) {
     <>
       <PageHero
         eyebrow="100% remote"
-        title={<>Remote jobs for <span className="text-gradient">Malaysians</span></>}
-        description="Work from anywhere in Malaysia. Salary shown upfront — apply with your CV in 2 minutes, no account needed."
+        title={<>Remote roles we <span className="text-gradient">recruit for</span></>}
+        description="Pick the kind of remote work that suits you and send your CV in 2 minutes — no account needed. We’ll contact you when a real opening matches."
       />
       <div className="container-page grid gap-8 py-10 lg:grid-cols-[280px_1fr]">
         <div className="hidden lg:block">
           <JobFiltersSidebar params={params} />
         </div>
         <div className="min-w-0">
-          <SampleNotice className="mb-4" />
           <JobFilters params={params} total={result.total} />
           <p className="mt-6 mb-4 text-sm text-muted-foreground" role="status" aria-live="polite">
-            Showing <strong className="text-foreground">{result.total}</strong> {result.total === 1 ? "job" : "jobs"}
+            Showing <strong className="text-foreground">{result.total}</strong> {result.total === 1 ? "role" : "roles"}
             {result.pages > 1 && <> · Page {result.page} of {result.pages}</>}
           </p>
 

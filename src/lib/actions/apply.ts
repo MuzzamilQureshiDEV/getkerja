@@ -3,8 +3,7 @@
 import { db } from "../db";
 import { sendEmail } from "../email";
 import { rateLimit, validateCv } from "../security";
-import { EXPERIENCE_LEVELS, FEE_TEXT, JOB_TYPES, SAMPLE_JOBS, SELECTION, SITE, labelOf } from "../constants";
-import { formatRM } from "../format";
+import { EXPERIENCE_LEVELS, FEE_TEXT, JOB_TYPES, SELECTION, SITE, categoryName, labelOf } from "../constants";
 import type { ActionState } from "../types";
 import { applicationSchema, fieldErrors, formObject } from "../validation";
 
@@ -33,9 +32,9 @@ export async function applyAction(_: ActionState<Applied>, fd: FormData): Promis
   const job = db.jobs.byId(d.jobId);
   if (!job || job.status !== "active") return { ok: false, fieldErrors: { jobId: ["This job is no longer open. Please choose another."] } };
 
-  const salary = typeof d.expectedSalary === "number" ? `${formatRM(d.expectedSalary)} / month` : "Not stated";
+  const salary = d.expectedSalary || "Not stated";
   const recruiterText = [
-    `New application: ${job.title} — ${job.company.name}`,
+    `New application: ${job.title} (${categoryName(job.category)})`,
     `(${labelOf(JOB_TYPES, job.type)} · ${labelOf(EXPERIENCE_LEVELS, job.experience)} · Remote)`,
     "",
     `Name:            ${d.name}`,
@@ -73,12 +72,10 @@ export async function applyAction(_: ActionState<Applied>, fd: FormData): Promis
     text: [
       `Hi ${d.name},`,
       "",
-      SAMPLE_JOBS
-        ? `Thanks for your interest in remote "${job.title}" roles. The listing you chose was an example, not a live vacancy — we've saved your CV and will only contact you about a real, open role that fits.`
-        : `Thanks for applying for the remote role "${job.title}" at ${job.company.name}.`,
+      `Thanks for sending your CV for remote "${job.title}" roles. We'll match you with real openings as they come in, and the employer, exact salary and benefits are always confirmed with you before any offer.`,
       "What happens next:",
       "1. Our recruitment team reviews your CV.",
-      "2. If you're shortlisted, we'll reply to this email with a Google Meet link for your online interview.",
+      "2. When an opening fits, we'll reply to this email with a Google Meet link for your online interview.",
       `3. Based on your interview, a selection fee of ${FEE_TEXT} applies to lock in your place in the selection process. We'll confirm the exact amount by email before you pay.`,
       `4. Selected candidates receive their job offer within ${SELECTION.offerDays} working days and start working remotely.`,
       "",

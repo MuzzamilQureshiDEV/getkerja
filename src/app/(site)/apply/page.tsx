@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { CalendarCheck, FileText, Lock, MailCheck, Trophy } from "lucide-react";
 import { ApplyForm } from "@/components/jobs/apply-form";
 import { PageHero } from "@/components/shared/page-hero";
-import { SampleNotice } from "@/components/shared/sample-notice";
 import { db } from "@/lib/db";
 import { FEE_TEXT, SELECTION } from "@/lib/constants";
 
@@ -14,14 +13,14 @@ export const metadata: Metadata = {
 
 const STEPS = [
   { Icon: FileText, title: "Fill the form with your CV", body: "Takes about 2 minutes." },
-  { Icon: MailCheck, title: "Select the job", body: "Pick the remote role you want." },
+  { Icon: MailCheck, title: "Select the role", body: "Pick the kind of remote work you want." },
   { Icon: CalendarCheck, title: "Get interviewed", body: `We email you a Google Meet link. After the interview, a ${FEE_TEXT} selection fee locks in your place.` },
   { Icon: Trophy, title: "Get selected", body: `Receive your offer within ${SELECTION.offerDays} working days and start remotely.` },
 ];
 
 export default async function ApplyPage({ searchParams }: PageProps<"/apply">) {
   const sp = await searchParams;
-  const jobs = db.jobs.active().map((j) => ({ id: j.id, title: j.title, company: j.company.name }));
+  const jobs = db.jobs.active().map((j) => ({ id: j.id, title: j.title }));
   const defaultJobId = typeof sp.job === "string" ? sp.job : undefined;
 
   return (
@@ -32,7 +31,6 @@ export default async function ApplyPage({ searchParams }: PageProps<"/apply">) {
           <ApplyForm jobs={jobs} defaultJobId={defaultJobId} />
         </div>
         <aside className="flex flex-col gap-4 lg:sticky lg:top-24 lg:self-start">
-          <SampleNotice />
           <div className="rounded-3xl border bg-card p-6">
             <h2 className="mb-4 font-heading text-lg font-semibold">What happens next</h2>
             <ol className="flex flex-col gap-4">

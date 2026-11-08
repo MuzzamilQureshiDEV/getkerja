@@ -12,7 +12,6 @@ import {
   CATEGORIES,
   EXPERIENCE_LEVELS,
   JOB_TYPES,
-  POSTED_FILTERS,
   SALARY_FILTERS,
   SORT_OPTIONS,
 } from "@/lib/constants";
@@ -39,7 +38,6 @@ const GROUPS: { key: Key; label: string; options: readonly { value: string; labe
   { key: "type", label: "Job type", options: JOB_TYPES },
   { key: "experience", label: "Experience level", options: EXPERIENCE_LEVELS },
   { key: "salary", label: "Minimum salary", options: SALARY_FILTERS },
-  { key: "posted", label: "Date posted", options: POSTED_FILTERS },
 ];
 
 function FilterFields({ params, go }: { params: JobSearchParams; go: (p: Partial<JobSearchParams>) => void }) {
@@ -88,7 +86,7 @@ export function JobFilters({ params, total }: { params: JobSearchParams; total: 
         >
           <label htmlFor="jobs-q" className="sr-only">Search jobs by keyword</label>
           <Search className="pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2 text-muted-foreground" aria-hidden />
-          <Input id="jobs-q" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Job title, skill or company" className="h-12 rounded-2xl bg-card pr-28 pl-12" />
+          <Input id="jobs-q" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Role or skill" className="h-12 rounded-2xl bg-card pr-28 pl-12" />
           <Button type="submit" className="absolute top-1/2 right-1.5 -translate-y-1/2" disabled={pending}>
             {pending ? <Loader2 className="animate-spin" /> : null} Search
           </Button>

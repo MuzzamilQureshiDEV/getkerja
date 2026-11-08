@@ -3,9 +3,8 @@ import { ArrowRight, GraduationCap, Headset, HeartPulse, Palette, PenLine, Spark
 import { Button } from "@/components/ui/button";
 import { JobCard } from "@/components/jobs/job-card";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { SampleNotice } from "@/components/shared/sample-notice";
 import { Stagger, StaggerItem } from "@/components/shared/reveal";
-import type { JobWithCompany } from "@/lib/types";
+import type { Job } from "@/lib/types";
 
 const QUICK = [
   { label: "Content Writer", href: "/jobs?category=writing-content", Icon: PenLine },
@@ -17,21 +16,20 @@ const QUICK = [
   { label: "Education", href: "/jobs?category=education", Icon: GraduationCap },
 ];
 
-export function EasyJobs({ jobs }: { jobs: JobWithCompany[] }) {
+export function EasyJobs({ jobs }: { jobs: Job[] }) {
   return (
     <section className="container-page py-20 sm:py-24" aria-labelledby="easy-title">
       <SectionHeading
         align="left"
         eyebrow="Easy to start"
-        title={<span id="easy-title">Easy remote jobs — no experience needed</span>}
-        description="Beginner-friendly roles with training provided. Perfect for fresh grads, students and career switchers."
+        title={<span id="easy-title">Easy remote roles — no experience needed</span>}
+        description="Beginner-friendly remote work. A good fit for fresh grads, students and career switchers."
         action={
           <Button asChild variant="outline" size="lg" className="group shrink-0">
-            <Link href="/jobs?experience=entry">All entry-level jobs <ArrowRight className="transition-transform group-hover:translate-x-1" /></Link>
+            <Link href="/jobs?experience=entry">All entry-level roles <ArrowRight className="transition-transform group-hover:translate-x-1" /></Link>
           </Button>
         }
       />
-        <SampleNotice className="mb-6" />
       <ul className="-mx-4 mb-8 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0" aria-label="Popular easy remote jobs">
         {QUICK.map(({ label, href, Icon }) => (
           <li key={label} className="shrink-0">

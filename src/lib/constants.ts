@@ -22,13 +22,6 @@ export const SELECTION = {
 // Non-breaking space + word joiners keep "RM 50–70" on one line.
 export const FEE_TEXT = `RM ${SELECTION.feeMin}⁠–⁠${SELECTION.feeMax}`;
 
-/**
- * While true, every listing is marked as an example (not a live vacancy), "verified"
- * badges are hidden and no JobPosting structured data is sent to Google.
- * Set to false only once the jobs in the data store are real, open vacancies.
- */
-export const SAMPLE_JOBS = true;
-
 /** All roles are remote. Candidates must be based in Malaysia. */
 export const REMOTE_LABEL = "Remote · Malaysia";
 
@@ -88,6 +81,23 @@ export const SORT_OPTIONS = [
   { value: "newest", label: "Newest first" },
   { value: "salary", label: "Highest salary" },
 ] as const;
+
+/** Apply form: where the candidate is based (13 states + 3 federal territories). */
+export const MY_STATES = [
+  "Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan", "Pahang", "Penang", "Perak", "Perlis",
+  "Sabah", "Sarawak", "Selangor", "Terengganu", "Kuala Lumpur", "Putrajaya", "Labuan",
+] as const;
+
+/** Apply form: expected monthly salary. "other" lets the candidate type an amount. */
+export const SALARY_RANGES = [
+  "Below RM 2,000", "RM 2,000 – 3,000", "RM 3,000 – 4,000", "RM 4,000 – 5,000",
+  "RM 5,000 – 7,000", "RM 7,000 – 10,000", "RM 10,000+", "Negotiable",
+] as const;
+
+/** Apply form: notice period. "other" lets the candidate type their own. */
+export const NOTICE_PERIODS = ["Immediately", "1 week", "2 weeks", "1 month", "2 months", "3 months"] as const;
+
+export const OTHER = "other";
 
 export const JOBS_PER_PAGE = 8;
 export const CV_MAX_BYTES = 5 * 1024 * 1024;

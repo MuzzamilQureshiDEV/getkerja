@@ -35,44 +35,44 @@ type JobSeed = {
 
 const jobSeeds: JobSeed[] = [
   // ── Easy-start remote jobs (entry / junior, training provided) ──
-  { title: "Content Writer (Entry Level)", company: "c10", category: "writing-content", type: "full-time", exp: "entry", min: 2500, max: 3500, daysAgo: 0, skills: ["Writing", "English", "Research", "Canva"], summary: "Write blog posts, product descriptions and social captions. Fresh grads welcome — we train you.", featured: true },
-  { title: "Copywriter (Ads & Social Media)", company: "c1", category: "writing-content", type: "full-time", exp: "junior", min: 3200, max: 4500, daysAgo: 1, skills: ["Copywriting", "Social Media", "Meta Ads", "Bahasa Malaysia"], summary: "Write punchy ad copy, emails and landing pages for SME software campaigns.", featured: true },
-  { title: "Freelance Blog Writer", company: "c8", category: "writing-content", type: "freelance", exp: "entry", min: 1000, max: 2500, daysAgo: 3, skills: ["Blogging", "SEO Basics", "Google Docs"], summary: "Write 4–8 study-tips articles a month at your own pace. Paid per article." },
-  { title: "Customer Support Agent (Live Chat)", company: "c10", category: "customer-service", type: "full-time", exp: "entry", min: 2500, max: 3200, daysAgo: 0, skills: ["Live Chat", "English", "Bahasa Malaysia", "Typing"], summary: "Answer shopper questions via live chat and email. No experience needed — full training provided.", featured: true },
-  { title: "Part-time Support Agent (Evenings)", company: "c2", category: "customer-service", type: "part-time", exp: "entry", min: 1400, max: 2000, daysAgo: 2, skills: ["Customer Service", "Email Support", "Patience"], summary: "Flexible evening shifts helping merchants by email — great for students." },
-  { title: "HR & Admin Assistant", company: "c3", category: "hr-admin", type: "full-time", exp: "entry", min: 2400, max: 3200, daysAgo: 1, skills: ["Microsoft Office", "Google Sheets", "Scheduling", "Filing"], summary: "Support onboarding, leave records and scheduling for a nationwide team — all online.", featured: true },
+  { title: "Content Writer (Entry Level)", company: "c10", category: "writing-content", type: "full-time", exp: "entry", min: 2500, max: 3500, daysAgo: 0, skills: ["Writing", "English", "Research", "Canva"], summary: "Write blog posts, product descriptions and social captions. Fresh grads welcome.", featured: true },
+  { title: "Copywriter (Ads & Social Media)", company: "c1", category: "writing-content", type: "full-time", exp: "junior", min: 3200, max: 4500, daysAgo: 1, skills: ["Copywriting", "Social Media", "Meta Ads", "Bahasa Malaysia"], summary: "Write punchy ad copy, emails and landing pages.", featured: true },
+  { title: "Freelance Blog Writer", company: "c8", category: "writing-content", type: "freelance", exp: "entry", min: 1000, max: 2500, daysAgo: 3, skills: ["Blogging", "SEO Basics", "Google Docs"], summary: "Write articles at your own pace. Usually paid per article." },
+  { title: "Customer Support Agent (Live Chat)", company: "c10", category: "customer-service", type: "full-time", exp: "entry", min: 2500, max: 3200, daysAgo: 0, skills: ["Live Chat", "English", "Bahasa Malaysia", "Typing"], summary: "Answer customer questions via live chat and email. A good first job — no experience needed.", featured: true },
+  { title: "Part-time Support Agent (Evenings)", company: "c2", category: "customer-service", type: "part-time", exp: "entry", min: 1400, max: 2000, daysAgo: 2, skills: ["Customer Service", "Email Support", "Patience"], summary: "Flexible evening shifts answering customer emails — great for students." },
+  { title: "HR & Admin Assistant", company: "c3", category: "hr-admin", type: "full-time", exp: "entry", min: 2400, max: 3200, daysAgo: 1, skills: ["Microsoft Office", "Google Sheets", "Scheduling", "Filing"], summary: "Support onboarding, leave records and scheduling — all online.", featured: true },
   { title: "Data Entry Admin (Part-time)", company: "c4", category: "hr-admin", type: "part-time", exp: "entry", min: 1200, max: 1800, daysAgo: 4, skills: ["Typing", "Excel", "Attention to Detail"], summary: "Update records and spreadsheets accurately, 4 hours a day, from home." },
-  { title: "UI Designer (Junior)", company: "c10", category: "design-creative", type: "full-time", exp: "junior", min: 3500, max: 5000, daysAgo: 1, skills: ["Figma", "UI Design", "Mobile Apps", "Design Systems"], summary: "Design clean screens for our shopping app and website with guidance from senior designers.", featured: true },
-  { title: "Social Media Graphic Designer", company: "c12", category: "design-creative", type: "part-time", exp: "entry", min: 1500, max: 2400, daysAgo: 5, skills: ["Canva", "Photoshop", "Instagram", "TikTok"], summary: "Create eye-catching posts and short-video covers for our café brand." },
-  { title: "Healthcare Admin Assistant", company: "c4", category: "healthcare", type: "full-time", exp: "entry", min: 2300, max: 3000, daysAgo: 0, skills: ["Patient Records", "Microsoft Office", "Phone & Email"], summary: "Manage patient appointment requests and records remotely. Training provided." },
+  { title: "UI Designer (Junior)", company: "c10", category: "design-creative", type: "full-time", exp: "junior", min: 3500, max: 5000, daysAgo: 1, skills: ["Figma", "UI Design", "Mobile Apps", "Design Systems"], summary: "Design clean screens for apps and websites, usually alongside senior designers.", featured: true },
+  { title: "Social Media Graphic Designer", company: "c12", category: "design-creative", type: "part-time", exp: "entry", min: 1500, max: 2400, daysAgo: 5, skills: ["Canva", "Photoshop", "Instagram", "TikTok"], summary: "Create eye-catching social posts and short-video covers for brands." },
+  { title: "Healthcare Admin Assistant", company: "c4", category: "healthcare", type: "full-time", exp: "entry", min: 2300, max: 3000, daysAgo: 0, skills: ["Patient Records", "Microsoft Office", "Phone & Email"], summary: "Manage patient appointment requests and records remotely." },
   { title: "Patient Appointment Coordinator", company: "c4", category: "healthcare", type: "part-time", exp: "entry", min: 1500, max: 2200, daysAgo: 3, skills: ["Scheduling", "Customer Service", "Bahasa Malaysia"], summary: "Book and confirm clinic appointments by phone, WhatsApp and email." },
-  { title: "Online Maths Tutor (Primary & Secondary)", company: "c8", category: "education", type: "part-time", exp: "entry", min: 1600, max: 2600, daysAgo: 1, skills: ["Mathematics", "Teaching", "Google Meet"], summary: "Teach small online classes after school hours. Lesson plans provided." },
+  { title: "Online Maths Tutor (Primary & Secondary)", company: "c8", category: "education", type: "part-time", exp: "entry", min: 1600, max: 2600, daysAgo: 1, skills: ["Mathematics", "Teaching", "Google Meet"], summary: "Teach small online classes after school hours." },
   { title: "Online Class Coordinator", company: "c8", category: "education", type: "full-time", exp: "entry", min: 2500, max: 3200, daysAgo: 2, skills: ["Scheduling", "Google Workspace", "Communication"], summary: "Schedule online classes, support tutors and keep parents updated." },
-  { title: "Senior Full-Stack Engineer (React / Node.js)", company: "c1", category: "it-software", type: "full-time", exp: "senior", min: 9000, max: 14000, daysAgo: 0, skills: ["React", "Next.js", "Node.js", "PostgreSQL", "AWS"], summary: "Lead features end-to-end on our SME accounting platform — fully remote, anywhere in Malaysia.", featured: true },
-  { title: "Product Designer (UI/UX)", company: "c1", category: "design-creative", type: "full-time", exp: "mid", min: 6000, max: 9000, daysAgo: 2, skills: ["Figma", "Design Systems", "User Research", "Prototyping"], summary: "Shape delightful, accessible experiences for finance tools that SME owners love using.", featured: true },
-  { title: "Mobile Engineer (Flutter)", company: "c2", category: "it-software", type: "contract", exp: "mid", min: 8000, max: 11000, daysAgo: 3, skills: ["Flutter", "Dart", "REST APIs", "CI/CD"], summary: "Build the merchant wallet app powering 120,000 daily transactions.", featured: true },
-  { title: "DevOps Engineer", company: "c1", category: "it-software", type: "full-time", exp: "senior", min: 10000, max: 15000, daysAgo: 5, skills: ["Kubernetes", "Terraform", "AWS", "Observability"], summary: "Scale reliable, secure infrastructure for a platform processing millions of invoices." },
-  { title: "Data Analyst Intern", company: "c11", category: "it-software", type: "internship", exp: "entry", min: 1500, max: 1800, daysAgo: 3, skills: ["Python", "SQL", "Power BI"], summary: "Analyse solar generation data to help optimise plant performance — 6-month remote internship." },
-  { title: "Finance Executive", company: "c2", category: "finance-accounting", type: "full-time", exp: "junior", min: 3800, max: 5000, daysAgo: 1, skills: ["MFRS", "SST", "Reconciliation", "Excel"], summary: "Own month-end close, reconciliations and SST filings for a fast-growing payments company." },
-  { title: "Accounts Payable Specialist", company: "c3", category: "finance-accounting", type: "contract", exp: "entry", min: 2800, max: 3400, daysAgo: 13, skills: ["SAP", "Invoice Processing", "Excel"], summary: "12-month remote contract with possibility of conversion to permanent." },
-  { title: "Digital Marketing Specialist", company: "c10", category: "sales-marketing", type: "full-time", exp: "mid", min: 5000, max: 7000, daysAgo: 1, skills: ["Meta Ads", "Google Ads", "TikTok Shop", "GA4"], summary: "Drive growth across marketplaces and social commerce for a top Malaysian lifestyle brand.", featured: true },
+  { title: "Senior Full-Stack Engineer (React / Node.js)", company: "c1", category: "it-software", type: "full-time", exp: "senior", min: 9000, max: 14000, daysAgo: 0, skills: ["React", "Next.js", "Node.js", "PostgreSQL", "AWS"], summary: "Build web product features end-to-end — fully remote, anywhere in Malaysia.", featured: true },
+  { title: "Product Designer (UI/UX)", company: "c1", category: "design-creative", type: "full-time", exp: "mid", min: 6000, max: 9000, daysAgo: 2, skills: ["Figma", "Design Systems", "User Research", "Prototyping"], summary: "Shape clear, accessible experiences for web and mobile products.", featured: true },
+  { title: "Mobile Engineer (Flutter)", company: "c2", category: "it-software", type: "contract", exp: "mid", min: 8000, max: 11000, daysAgo: 3, skills: ["Flutter", "Dart", "REST APIs", "CI/CD"], summary: "Build and maintain cross-platform mobile apps.", featured: true },
+  { title: "DevOps Engineer", company: "c1", category: "it-software", type: "full-time", exp: "senior", min: 10000, max: 15000, daysAgo: 5, skills: ["Kubernetes", "Terraform", "AWS", "Observability"], summary: "Build and run reliable, secure cloud infrastructure." },
+  { title: "Data Analyst Intern", company: "c11", category: "it-software", type: "internship", exp: "entry", min: 1500, max: 1800, daysAgo: 3, skills: ["Python", "SQL", "Power BI"], summary: "Analyse data and build simple dashboards — a remote internship for students and fresh grads." },
+  { title: "Finance Executive", company: "c2", category: "finance-accounting", type: "full-time", exp: "junior", min: 3800, max: 5000, daysAgo: 1, skills: ["MFRS", "SST", "Reconciliation", "Excel"], summary: "Handle month-end close, reconciliations and SST filings." },
+  { title: "Accounts Payable Specialist", company: "c3", category: "finance-accounting", type: "contract", exp: "entry", min: 2800, max: 3400, daysAgo: 13, skills: ["SAP", "Invoice Processing", "Excel"], summary: "Process supplier invoices and payments accurately, often on a fixed-term contract." },
+  { title: "Digital Marketing Specialist", company: "c10", category: "sales-marketing", type: "full-time", exp: "mid", min: 5000, max: 7000, daysAgo: 1, skills: ["Meta Ads", "Google Ads", "TikTok Shop", "GA4"], summary: "Drive growth across marketplaces, ads and social commerce.", featured: true },
   { title: "Bilingual Content Writer (BM / English)", company: "c10", category: "writing-content", type: "part-time", exp: "junior", min: 2200, max: 3000, daysAgo: 4, skills: ["Copywriting", "Bahasa Malaysia", "SEO"], summary: "Write product stories, emails and social captions in both BM and English." },
-  { title: "Inside Sales Executive", company: "c1", category: "sales-marketing", type: "full-time", exp: "junior", min: 3500, max: 4500, daysAgo: 10, skills: ["B2B Sales", "CRM", "Cold Calling"], summary: "Help SMEs discover our software over video calls. Attractive commission scheme." },
-  { title: "Freelance Brand Illustrator", company: "c12", category: "design-creative", type: "freelance", exp: "mid", daysAgo: 11, skills: ["Illustration", "Procreate", "Packaging"], summary: "Create seasonal packaging and in-store artwork celebrating Malaysian culture." },
+  { title: "Inside Sales Executive", company: "c1", category: "sales-marketing", type: "full-time", exp: "junior", min: 3500, max: 4500, daysAgo: 10, skills: ["B2B Sales", "CRM", "Cold Calling"], summary: "Help businesses discover products over video calls. Roles often include commission." },
+  { title: "Freelance Brand Illustrator", company: "c12", category: "design-creative", type: "freelance", exp: "mid", daysAgo: 11, skills: ["Illustration", "Procreate", "Packaging"], summary: "Create illustrations for packaging, campaigns and social media." },
   { title: "Solar PV Design Engineer", company: "c11", category: "engineering", type: "full-time", exp: "junior", min: 4500, max: 6500, daysAgo: 1, skills: ["PVsyst", "AutoCAD", "NEM", "Electrical Design"], summary: "Design rooftop solar systems for commercial clients under Malaysia's NEM programme.", featured: true },
   { title: "CAD Drafter (Civil & Structural)", company: "c6", category: "engineering", type: "contract", exp: "junior", min: 3500, max: 4800, daysAgo: 6, skills: ["AutoCAD", "Revit", "Tekla"], summary: "Produce detailed drawings for infrastructure projects from home." },
-  { title: "Medical Coder (ICD-10)", company: "c4", category: "healthcare", type: "full-time", exp: "junior", min: 3200, max: 4500, daysAgo: 0, skills: ["ICD-10", "Medical Terminology", "Billing"], summary: "Code clinical records accurately for our hospital network — remote, with full training." },
-  { title: "Supply Chain Analyst", company: "c3", category: "logistics", type: "full-time", exp: "junior", min: 4200, max: 6000, daysAgo: 6, skills: ["SQL", "Power BI", "Forecasting", "Excel"], summary: "Turn freight and warehouse data into insights that cut lead times across our network." },
+  { title: "Medical Coder (ICD-10)", company: "c4", category: "healthcare", type: "full-time", exp: "junior", min: 3200, max: 4500, daysAgo: 0, skills: ["ICD-10", "Medical Terminology", "Billing"], summary: "Code clinical records accurately for hospitals and clinics." },
+  { title: "Supply Chain Analyst", company: "c3", category: "logistics", type: "full-time", exp: "junior", min: 4200, max: 6000, daysAgo: 6, skills: ["SQL", "Power BI", "Forecasting", "Excel"], summary: "Turn freight and warehouse data into insights that cut lead times." },
   { title: "Online English Tutor", company: "c8", category: "education", type: "part-time", exp: "entry", min: 1800, max: 2800, daysAgo: 2, skills: ["English", "Lesson Planning", "Zoom"], summary: "Teach small live online classes to secondary students — flexible evening hours." },
-  { title: "Instructional Designer", company: "c8", category: "education", type: "full-time", exp: "mid", min: 5000, max: 7000, daysAgo: 7, skills: ["Articulate", "Curriculum Design", "Canva"], summary: "Design engaging digital courses used by thousands of learners." },
-  { title: "Customer Support Associate (Bilingual)", company: "c2", category: "customer-service", type: "full-time", exp: "entry", min: 2800, max: 3500, daysAgo: 0, skills: ["Bahasa Malaysia", "English", "Mandarin", "Zendesk"], summary: "Help merchants succeed via chat and email. Fresh graduates welcome!" },
-  { title: "Virtual Assistant", company: "c12", category: "hr-admin", type: "part-time", exp: "entry", min: 1500, max: 2200, daysAgo: 6, skills: ["Google Workspace", "Scheduling", "Communication"], summary: "Support our leadership team with calendars, documents and coordination." },
-  { title: "Talent Acquisition Specialist", company: "c12", category: "hr-admin", type: "full-time", exp: "mid", min: 5000, max: 7000, daysAgo: 4, skills: ["Sourcing", "Interviewing", "LinkedIn Recruiter"], summary: "Recruit and interview great people for our growing café network — all via video." },
+  { title: "Instructional Designer", company: "c8", category: "education", type: "full-time", exp: "mid", min: 5000, max: 7000, daysAgo: 7, skills: ["Articulate", "Curriculum Design", "Canva"], summary: "Design engaging digital courses and learning materials." },
+  { title: "Customer Support Associate (Bilingual)", company: "c2", category: "customer-service", type: "full-time", exp: "entry", min: 2800, max: 3500, daysAgo: 0, skills: ["Bahasa Malaysia", "English", "Mandarin", "Zendesk"], summary: "Help customers via chat and email. Fresh graduates welcome." },
+  { title: "Virtual Assistant", company: "c12", category: "hr-admin", type: "part-time", exp: "entry", min: 1500, max: 2200, daysAgo: 6, skills: ["Google Workspace", "Scheduling", "Communication"], summary: "Support busy managers with calendars, documents and coordination." },
+  { title: "Talent Acquisition Specialist", company: "c12", category: "hr-admin", type: "full-time", exp: "mid", min: 5000, max: 7000, daysAgo: 4, skills: ["Sourcing", "Interviewing", "LinkedIn Recruiter"], summary: "Source and interview candidates, all over video." },
 ];
 
 const categoryTemplates: Record<CategorySlug, { resp: string[]; req: string[] }> = {
   "writing-content": {
-    resp: ["Write clear, engaging content for websites, blogs and social media", "Research topics and follow our tone-of-voice guide", "Edit and proofread your own and others’ work", "Meet weekly deadlines agreed with your editor"],
+    resp: ["Write clear, engaging content for websites, blogs and social media", "Research topics and follow the brand’s tone of voice", "Edit and proofread your own and others’ work", "Meet weekly deadlines agreed with your editor"],
     req: ["Good written English (Bahasa Malaysia is a plus)", "A few writing samples — school or personal work is fine", "Comfortable with Google Docs", "Based in Malaysia with a reliable internet connection"],
   },
   "design-creative": {
@@ -108,7 +108,7 @@ const categoryTemplates: Record<CategorySlug, { resp: string[]; req: string[] }>
     req: ["Degree in a relevant subject", "Passion for student-centred learning", "Excellent command of English", "Based in Malaysia with a reliable internet connection and webcam"],
   },
   "customer-service": {
-    resp: ["Respond to customer queries via chat and email", "Resolve issues quickly and empathetically", "Log cases accurately in our helpdesk", "Share customer insights with product teams"],
+    resp: ["Respond to customer queries via chat and email", "Resolve issues quickly and empathetically", "Log cases accurately in the helpdesk", "Share customer insights with product teams"],
     req: ["SPM/Diploma/Degree in any field", "Good command of Bahasa Malaysia and English", "Patient, positive and solution-oriented", "Based in Malaysia with a reliable internet connection"],
   },
   "hr-admin": {
@@ -119,11 +119,9 @@ const categoryTemplates: Record<CategorySlug, { resp: string[]; req: string[] }>
 
 const BENEFITS = [
   "100% remote — work from anywhere in Malaysia",
-  "EPF, SOCSO & EIS contributions",
-  "Internet & equipment allowance",
-  "Medical coverage",
-  "Flexible working hours",
-  "Annual leave from 16 days",
+  "Salary paid in RM",
+  "Online interview — no travel needed",
+  "Exact benefits confirmed before any offer",
 ];
 
 function slugFor(title: string, i: number) {
@@ -139,7 +137,6 @@ function slugFor(title: string, i: number) {
 export function buildSeedJobs(now = Date.now()): Job[] {
   return jobSeeds.map((s, i) => {
     const t = categoryTemplates[s.category];
-    const company = seedCompanies.find((c) => c.id === s.company)!;
     const posted = new Date(now - s.daysAgo * 86400000 - i * 3600000);
     const deadline = new Date(posted.getTime() + 45 * 86400000);
     return {
@@ -154,10 +151,10 @@ export function buildSeedJobs(now = Date.now()): Job[] {
       salaryMax: s.max,
       salaryHidden: !s.min && !s.max,
       summary: s.summary,
-      description: `${s.summary}\n\nThis is a fully remote role — you can work from anywhere in Malaysia. At ${company.name}, you'll join a team that values ownership, clear communication and doing right by our customers. Interviews are held online via Google Meet.`,
+      description: `${s.summary}\n\nThis is a fully remote role type you can do from anywhere in Malaysia. Send us your CV for it and we’ll match you with real openings as they come in. Interviews are held online via Google Meet, and the employer, exact salary and benefits are confirmed with you before any offer.`,
       responsibilities: t.resp,
       requirements: t.req,
-      benefits: BENEFITS.slice(0, 4 + (i % 3)),
+      benefits: BENEFITS,
       skills: s.skills,
       postedAt: posted.toISOString(),
       deadline: deadline.toISOString(),

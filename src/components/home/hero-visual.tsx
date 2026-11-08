@@ -18,7 +18,7 @@ export function HeroVisual() {
           <div className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-indigo-500 to-indigo-800 font-heading font-bold text-white">CW</div>
           <div>
             <p className="font-heading font-semibold">Content Writer</p>
-            <p className="text-sm text-muted-foreground">Example role</p>
+            <p className="text-sm text-muted-foreground">Writing &amp; Content</p>
           </div>
         </div>
         <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium">
