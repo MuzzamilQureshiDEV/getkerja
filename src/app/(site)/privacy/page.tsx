@@ -26,7 +26,7 @@ export default function PrivacyPage() {
     <LegalLayout title="Privacy Policy & PDPA Notice" updated="8 November 2026" toc={TOC}>
       <h2 id="intro">1. Introduction</h2>
       <p>
-        {SITE.name} Sdn. Bhd. (“{SITE.name}”, “we”, “us”) respects your privacy. This Privacy Notice explains how we process personal data of job
+        {SITE.name} (“we”, “us”) respects your privacy. This Privacy Notice explains how we process personal data of job
         seekers who apply through our website (“Candidates”), hiring companies (“Employers”) and visitors in accordance with the <strong>Personal Data Protection Act 2010 (PDPA)</strong> of Malaysia
         and its amendments. This notice is available in English and Bahasa Malaysia; in case of inconsistency, the English version prevails.
       </p>
@@ -84,7 +84,6 @@ export default function PrivacyPage() {
 
       <h2 id="contact">10. Contact our Data Protection Officer</h2>
       <p>
-        Data Protection Officer, {SITE.name} Sdn. Bhd., {SITE.address.street}, {SITE.address.postcode} {SITE.address.city}.<br />
         Email: <a href="mailto:hr@getkerja.my">hr@getkerja.my</a>
       </p>
     </LegalLayout>

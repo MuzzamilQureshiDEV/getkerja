@@ -55,15 +55,6 @@ export interface BlogPost {
   body: string; // trusted HTML from CMS (sanitise if user-generated)
 }
 
-export interface Testimonial {
-  name: string;
-  role: string;
-  company?: string;
-  quote: string;
-  type: "candidate" | "employer";
-  rating: number;
-}
-
 export type JobWithCompany = Job & { company: Company };
 
 export interface JobSearchParams {

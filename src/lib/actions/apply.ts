@@ -3,7 +3,7 @@
 import { db } from "../db";
 import { sendEmail } from "../email";
 import { rateLimit, validateCv } from "../security";
-import { EXPERIENCE_LEVELS, FEE_TEXT, JOB_TYPES, SELECTION, SITE, labelOf } from "../constants";
+import { EXPERIENCE_LEVELS, FEE_TEXT, JOB_TYPES, SAMPLE_JOBS, SELECTION, SITE, labelOf } from "../constants";
 import { formatRM } from "../format";
 import type { ActionState } from "../types";
 import { applicationSchema, fieldErrors, formObject } from "../validation";
@@ -73,7 +73,9 @@ export async function applyAction(_: ActionState<Applied>, fd: FormData): Promis
     text: [
       `Hi ${d.name},`,
       "",
-      `Thanks for applying for the remote role "${job.title}" at ${job.company.name}.`,
+      SAMPLE_JOBS
+        ? `Thanks for your interest in remote "${job.title}" roles. The listing you chose was an example, not a live vacancy — we've saved your CV and will only contact you about a real, open role that fits.`
+        : `Thanks for applying for the remote role "${job.title}" at ${job.company.name}.`,
       "What happens next:",
       "1. Our recruitment team reviews your CV.",
       "2. If you're shortlisted, we'll reply to this email with a Google Meet link for your online interview.",

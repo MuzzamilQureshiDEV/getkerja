@@ -10,6 +10,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { categoryName } from "@/lib/constants";
 import { db } from "@/lib/db";
 import type { JobSearchParams } from "@/lib/types";
+import { SampleNotice } from "@/components/shared/sample-notice";
 
 const KEYS: (keyof JobSearchParams)[] = ["q", "category", "type", "experience", "salary", "posted", "sort", "page"];
 
@@ -57,6 +58,7 @@ export default async function JobsPage({ searchParams }: PageProps<"/jobs">) {
           <JobFiltersSidebar params={params} />
         </div>
         <div className="min-w-0">
+          <SampleNotice className="mb-4" />
           <JobFilters params={params} total={result.total} />
           <p className="mt-6 mb-4 text-sm text-muted-foreground" role="status" aria-live="polite">
             Showing <strong className="text-foreground">{result.total}</strong> {result.total === 1 ? "job" : "jobs"}

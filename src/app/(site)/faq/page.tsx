@@ -31,7 +31,7 @@ const GROUPS = [
     title: "Interviews",
     items: [
       { q: "How are interviews held?", a: "All interviews are online via Google Meet. You just need a laptop or phone with a camera, a stable internet connection and a quiet spot." },
-      { q: "How do I know an employer is genuine?", a: "Look for the verified badge — it means we’ve checked the company’s SSM registration. We never charge to apply or to be interviewed; the only fee is the selection fee confirmed by email after your interview. Ignore any other payment request claiming to be from us and report it." },
+      { q: "How do I know an employer is genuine?", a: "Ask us. Email hr@getkerja.my and we’ll tell you the hiring company’s name before your interview, so you can check it yourself. We never charge to apply or to be interviewed; the only fee is the selection fee confirmed by email after your interview. Ignore any other payment request claiming to be from us and report it." },
     ],
   },
   {

@@ -24,7 +24,8 @@ import { ShareButtons } from "@/components/jobs/share-buttons";
 import { CompanyLogo } from "@/components/shared/company-logo";
 import { JsonLd } from "@/components/shared/json-ld";
 import { SongketPattern } from "@/components/shared/songket-pattern";
-import { EXPERIENCE_LEVELS, JOB_TYPES, REMOTE_LABEL, SITE, categoryName, labelOf } from "@/lib/constants";
+import { EXPERIENCE_LEVELS, JOB_TYPES, REMOTE_LABEL, SAMPLE_JOBS, SITE, categoryName, labelOf } from "@/lib/constants";
+import { SampleNotice } from "@/components/shared/sample-notice";
 import { db } from "@/lib/db";
 import { formatDate, formatSalary, timeAgo } from "@/lib/format";
 import type { JobWithCompany } from "@/lib/types";
@@ -104,6 +105,7 @@ export default async function JobDetailPage({ params }: PageProps<"/jobs/[slug]"
       <section className="relative overflow-hidden border-b bg-mesh">
         <SongketPattern id="jd-songket" className="text-primary/[0.06] [mask-image:radial-gradient(60%_80%_at_80%_0%,black,transparent)]" />
         <div className="relative container-page py-8 sm:py-12">
+          <SampleNotice className="mb-6" />
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex flex-wrap items-center gap-1.5 text-sm text-muted-foreground">
               <li><Link href="/" className="hover:text-foreground">Home</Link></li>
@@ -121,6 +123,7 @@ export default async function JobDetailPage({ params }: PageProps<"/jobs/[slug]"
                   {job.urgent && <Badge className="bg-coral-soft text-coral">Urgent hiring</Badge>}
                   {job.featured && <Badge className="bg-primary/10 text-primary">Featured</Badge>}
                   {closed && <Badge variant="destructive">No longer accepting applications</Badge>}
+                  {SAMPLE_JOBS && <Badge variant="outline">Example listing</Badge>}
                 </div>
                 <h1 className="text-3xl font-bold sm:text-4xl lg:text-5xl">{job.title}</h1>
                 <p className="flex flex-wrap items-center gap-x-4 gap-y-2 text-muted-foreground">
@@ -247,7 +250,7 @@ export default async function JobDetailPage({ params }: PageProps<"/jobs/[slug]"
         </Button>
       </div>
 
-      {!closed && <JsonLd data={jobPostingLd(job)} />}
+      {!closed && !SAMPLE_JOBS && <JsonLd data={jobPostingLd(job)} />}
     </>
   );
 }

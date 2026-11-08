@@ -3,6 +3,7 @@ import { ArrowRight, GraduationCap, Headset, HeartPulse, Palette, PenLine, Spark
 import { Button } from "@/components/ui/button";
 import { JobCard } from "@/components/jobs/job-card";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { SampleNotice } from "@/components/shared/sample-notice";
 import { Stagger, StaggerItem } from "@/components/shared/reveal";
 import type { JobWithCompany } from "@/lib/types";
 
@@ -30,6 +31,7 @@ export function EasyJobs({ jobs }: { jobs: JobWithCompany[] }) {
           </Button>
         }
       />
+        <SampleNotice className="mb-6" />
       <ul className="-mx-4 mb-8 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0" aria-label="Popular easy remote jobs">
         {QUICK.map(({ label, href, Icon }) => (
           <li key={label} className="shrink-0">

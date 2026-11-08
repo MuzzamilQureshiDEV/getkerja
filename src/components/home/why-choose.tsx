@@ -4,12 +4,12 @@ import { Reveal } from "@/components/shared/reveal";
 import { cn } from "@/lib/utils";
 
 const FEATURES = [
-  { Icon: ShieldCheck, title: "Verified employers", body: "Every company is checked against SSM registration before its badge goes live — so you apply with confidence.", className: "lg:col-span-2 lg:row-span-2", big: true },
+  { Icon: ShieldCheck, title: "Free to apply", body: "Applying costs nothing. Any selection fee is only discussed by email after your interview, and you can say no.", className: "lg:col-span-2 lg:row-span-2", big: true },
   { Icon: MousePointerClick, title: "No account needed", body: "One simple form — no sign-up, no passwords, no profiles to maintain." },
   { Icon: Upload, title: "CV upload", body: "Attach your CV as PDF or Word and you’re done." },
   { Icon: Video, title: "Online interviews", body: "Shortlisted? We email you a Google Meet link — interview from home." },
   { Icon: MapPinned, title: "100% remote", body: "Every job is remote — work from anywhere in Malaysia, with salaries in RM." },
-  { Icon: Headset, title: "Fast support", body: "Real humans in KL reply within one business day — in BM or English.", className: "lg:col-span-2" },
+  { Icon: Headset, title: "Fast support", body: "Email us any time — we aim to reply within one business day, in BM or English.", className: "lg:col-span-2" },
 ];
 
 export function WhyChoose() {

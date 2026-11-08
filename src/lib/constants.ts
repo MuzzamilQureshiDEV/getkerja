@@ -8,13 +8,6 @@ export const SITE = {
   email: "hr@getkerja.my",
   /** Inbox for new applications (CV attached) and contact-form messages. Override with APPLICATIONS_EMAIL. */
   applicationsEmail: process.env.APPLICATIONS_EMAIL ?? "hr@getkerja.my",
-  address: {
-    street: "Level 23, Menara Kerja, Jalan Ampang",
-    city: "Kuala Lumpur",
-    postcode: "50450",
-    state: "Wilayah Persekutuan Kuala Lumpur",
-    country: "MY",
-  },
 } as const;
 
 /**
@@ -28,6 +21,13 @@ export const SELECTION = {
 } as const;
 // Non-breaking space + word joiners keep "RM 50–70" on one line.
 export const FEE_TEXT = `RM ${SELECTION.feeMin}⁠–⁠${SELECTION.feeMax}`;
+
+/**
+ * While true, every listing is marked as an example (not a live vacancy), "verified"
+ * badges are hidden and no JobPosting structured data is sent to Google.
+ * Set to false only once the jobs in the data store are real, open vacancies.
+ */
+export const SAMPLE_JOBS = true;
 
 /** All roles are remote. Candidates must be based in Malaysia. */
 export const REMOTE_LABEL = "Remote · Malaysia";

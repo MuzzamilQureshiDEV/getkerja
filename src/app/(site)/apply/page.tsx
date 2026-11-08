@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CalendarCheck, FileText, Lock, MailCheck, Trophy } from "lucide-react";
 import { ApplyForm } from "@/components/jobs/apply-form";
 import { PageHero } from "@/components/shared/page-hero";
+import { SampleNotice } from "@/components/shared/sample-notice";
 import { db } from "@/lib/db";
 import { FEE_TEXT, SELECTION } from "@/lib/constants";
 
@@ -31,6 +32,7 @@ export default async function ApplyPage({ searchParams }: PageProps<"/apply">) {
           <ApplyForm jobs={jobs} defaultJobId={defaultJobId} />
         </div>
         <aside className="flex flex-col gap-4 lg:sticky lg:top-24 lg:self-start">
+          <SampleNotice />
           <div className="rounded-3xl border bg-card p-6">
             <h2 className="mb-4 font-heading text-lg font-semibold">What happens next</h2>
             <ol className="flex flex-col gap-4">

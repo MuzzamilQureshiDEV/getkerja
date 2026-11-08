@@ -6,7 +6,6 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { WhyChoose } from "@/components/home/why-choose";
-import { Stats } from "@/components/home/stats";
 import { FEE_TEXT, SELECTION } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -16,25 +15,18 @@ export const metadata: Metadata = {
 };
 
 const VALUES = [
-  { Icon: ShieldCheck, title: "Trust first", body: "Verified employers, honest salary ranges and zero spam. Trust is the product." },
+  { Icon: ShieldCheck, title: "Trust first", body: "Honest listings, salary ranges upfront and zero spam. Trust is the product." },
   { Icon: HeartHandshake, title: "People over posts", body: "Behind every CV is a person and a family. We design with empathy." },
   { Icon: Lightbulb, title: "Simple by design", body: "Fewer clicks, clearer screens and forms that work on any phone." },
-  { Icon: Compass, title: "Proudly Malaysian", body: "Built in KL for Malaysia — from Perlis to Sabah, in English and BM." },
+  { Icon: Compass, title: "Proudly Malaysian", body: "Built for Malaysia — from Perlis to Sabah, in English and BM." },
 ];
 
 const PROCESS = [
   { step: "Discover", body: "Employers share what they need; we help shape clear, inclusive job ads with fair salary ranges." },
-  { step: "Attract", body: "Remote listings reach job seekers across every Malaysian state via search, partners and social channels." },
+  { step: "Attract", body: "We publish clear remote job ads so job seekers in every Malaysian state can find and apply for them." },
   { step: "Screen", body: "Candidates apply with one simple form; our recruiters review every CV that lands in our inbox." },
   { step: "Interview", body: `Shortlisted candidates get an email from us with a Google Meet link. Based on the interview, a ${FEE_TEXT} selection fee locks in their place in the selection process.` },
   { step: "Select & hire", body: `Selected candidates receive their job offer within ${SELECTION.offerDays} working days and start working remotely.` },
-];
-
-const TEAM = [
-  { name: "Aisha Rahman", role: "Co-founder & CEO", c: "from-coral to-primary" },
-  { name: "Benjamin Ong", role: "Co-founder & CTO", c: "from-primary to-teal" },
-  { name: "Kavitha Subramaniam", role: "Head of Talent Partnerships", c: "from-teal to-primary" },
-  { name: "Hakim Zulkifli", role: "Head of Design", c: "from-amber-400 to-coral" },
 ];
 
 export default function AboutPage() {
@@ -43,19 +35,19 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Our story"
         title={<>Making work <span className="text-gradient">work better</span> for Malaysia</>}
-        description="getKerja started with a simple frustration: job hunting in Malaysia was slow, opaque and stressful. We're changing that, one honest job post at a time."
+        description="Job hunting in Malaysia can be slow, opaque and stressful. We’re trying to make it simpler, one honest job post at a time."
       />
 
       <section className="container-page grid gap-12 py-20 lg:grid-cols-2 lg:items-center">
         <Reveal className="flex flex-col gap-5 text-lg leading-relaxed text-foreground/85">
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">From a KL co-working space to thousands of hires</h2>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">A simpler way to find remote work</h2>
           <p>
-            In 2021, our founders — a recruiter and an engineer — kept hearing the same stories: graduates sending 200 CVs without a reply, and SMEs
-            paying high agency fees for roles they couldn’t fill. So they built the platform they wished existed.
+            getKerja is a new, small recruitment service for remote jobs in Malaysia. Job hunting here is often slow and opaque: CVs go
+            unanswered and salaries are hidden until the last interview. We want to do it differently.
           </p>
           <p>
-            Today getKerja helps Malaysians land remote jobs with verified employers — whether you live in Kota Bharu, Kuching or Johor Bahru.
-            One form, one online interview, and you could be working from home. <em className="text-muted-foreground">(Placeholder story — replace with your own.)</em>
+            You fill in one form with your CV, we read every application ourselves, and if you’re shortlisted we interview you online over
+            Google Meet. No account, no app — and you can live anywhere in Malaysia.
           </p>
         </Reveal>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -71,8 +63,6 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
-
-      <Stats />
 
       <section className="container-page py-20 sm:py-24">
         <SectionHeading eyebrow="What we stand for" title="Our values" />
@@ -104,25 +94,6 @@ export default function AboutPage() {
             </Reveal>
           ))}
         </ol>
-      </section>
-
-      <section className="bg-secondary/40 py-20 sm:py-24" aria-labelledby="team">
-        <div className="container-page">
-          <SectionHeading eyebrow="The people" title={<span id="team">Meet the team</span>} description="A small, dedicated crew in Kuala Lumpur. (Placeholder profiles.)" />
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {TEAM.map((m) => (
-              <li key={m.name} className="flex flex-col items-center gap-3 rounded-3xl border bg-card p-6 text-center">
-                <span className={`grid size-24 place-items-center rounded-full bg-gradient-to-br ${m.c} font-heading text-2xl font-bold text-white`} aria-hidden>
-                  {m.name.split(" ").map((w) => w[0]).slice(0, 2).join("")}
-                </span>
-                <div>
-                  <p className="font-heading font-semibold">{m.name}</p>
-                  <p className="text-sm text-muted-foreground">{m.role}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
 
       <section className="container-page grid gap-5 py-20 md:grid-cols-2">

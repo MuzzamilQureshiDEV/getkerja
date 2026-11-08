@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, CalendarCheck, ClipboardList, Clock, FileSearch, Globe2, Send, Users, Video, Zap } from "lucide-react";
+import { ArrowRight, BadgeCheck, CalendarCheck, ClipboardList, Clock, FileSearch, Globe2, Send, Users, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { EmployerCta } from "@/components/home/employer-cta";
-import { TestimonialCard } from "@/components/home/testimonials";
 import { Eyebrow, SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { SongketPattern } from "@/components/shared/songket-pattern";
-import { testimonials } from "@/lib/data/seed";
 
 export const metadata: Metadata = {
   title: "For Employers — Hire Remote Talent in Malaysia",
@@ -24,10 +22,10 @@ const SERVICES = [
 ];
 
 const BENEFITS = [
-  { Icon: Globe2, stat: "13", label: "States + 3 territories to hire from — fully remote" },
-  { Icon: Zap, stat: "5 days", label: "Typical time to your first shortlist" },
-  { Icon: BadgeCheck, stat: "100%", label: "Shortlisted candidates already interviewed" },
-  { Icon: Clock, stat: "0", label: "Hours your team spends screening CVs" },
+  { Icon: Globe2, stat: "13 + 3", label: "States and federal territories to hire from — fully remote" },
+  { Icon: Video, stat: "Online", label: "Every candidate interviewed by us on Google Meet" },
+  { Icon: BadgeCheck, stat: "Shortlist", label: "With our interview notes, so you only meet the best" },
+  { Icon: Clock, stat: "1 day", label: "We aim to reply to every hiring enquiry within one business day" },
 ];
 
 const FAQ = [
@@ -87,15 +85,6 @@ export default function EmployersPage() {
           <h2 className="text-2xl font-bold sm:text-3xl">Ready to hire?</h2>
           <p className="max-w-lg text-muted-foreground">Send us your role details and we’ll get back to you within one business day with a quote and timeline.</p>
           <Button asChild size="lg" className="mt-2"><Link href="/contact?topic=employer">Request a quote <ArrowRight /></Link></Button>
-        </div>
-      </section>
-
-      <section className="bg-secondary/40 py-20 sm:py-24" aria-labelledby="etest">
-        <div className="container-page">
-          <SectionHeading eyebrow="Employer stories" title={<span id="etest">Teams that hire with getKerja</span>} />
-          <div className="grid gap-4 md:grid-cols-3">
-            {testimonials.filter((t) => t.type === "employer").map((t) => <TestimonialCard key={t.name} t={t} />)}
-          </div>
         </div>
       </section>
 

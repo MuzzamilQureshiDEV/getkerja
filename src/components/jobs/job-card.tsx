@@ -3,7 +3,7 @@ import { BadgeCheck, Briefcase, Clock, Flame, Globe2, Send, Wallet } from "lucid
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CompanyLogo } from "@/components/shared/company-logo";
-import { JOB_TYPES, REMOTE_LABEL, labelOf } from "@/lib/constants";
+import { JOB_TYPES, REMOTE_LABEL, labelOf, SAMPLE_JOBS } from "@/lib/constants";
 import { formatSalary, timeAgo } from "@/lib/format";
 import type { JobWithCompany } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -37,6 +37,7 @@ export function JobCard({ job, className }: { job: JobWithCompany; className?: s
       <div className="flex flex-wrap gap-1.5">
         {job.urgent && <Badge className="gap-1 bg-coral-soft text-coral"><Flame className="size-3" aria-hidden />Urgent</Badge>}
         {job.featured && <Badge className="bg-primary/10 text-primary">Featured</Badge>}
+          {SAMPLE_JOBS && <Badge variant="outline">Example</Badge>}
         <Badge variant="secondary">{labelOf(JOB_TYPES, job.type)}</Badge>
         <Badge className="gap-1 bg-teal-soft text-teal"><Globe2 className="size-3" aria-hidden />Remote</Badge>
       </div>
@@ -83,6 +84,7 @@ export function JobRow({ job }: { job: JobWithCompany }) {
           </h3>
           {job.urgent && <Badge className="gap-1 bg-coral-soft text-coral"><Flame className="size-3" aria-hidden />Urgent</Badge>}
           {job.featured && <Badge className="bg-primary/10 text-primary">Featured</Badge>}
+          {SAMPLE_JOBS && <Badge variant="outline">Example</Badge>}
         </div>
         <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
           {job.company.name}

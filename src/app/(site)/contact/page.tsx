@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin } from "lucide-react";
+import { Clock, Mail } from "lucide-react";
 import { ContactForm } from "@/components/forms/contact-form";
 import { PageHero } from "@/components/shared/page-hero";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with the getKerja team in Kuala Lumpur. Support for job seekers and employers by email or through our contact form.",
+  description: "Get in touch with the getKerja team. Support for job seekers and employers by email or through our contact form.",
   alternates: { canonical: "/contact" },
 };
 
 export default async function ContactPage({ searchParams }: PageProps<"/contact">) {
   const sp = await searchParams;
   const topic = typeof sp.topic === "string" ? sp.topic : undefined;
-  const mapQuery = encodeURIComponent(`${SITE.address.street}, ${SITE.address.city}`);
   const items = [
-    { Icon: MapPin, label: "Office", value: `${SITE.address.street}, ${SITE.address.postcode} ${SITE.address.city}, Malaysia`, href: `https://maps.google.com/?q=${mapQuery}` },
     { Icon: Mail, label: "Email", value: SITE.email, href: `mailto:${SITE.email}` },
     { Icon: Clock, label: "Office hours", value: "Mon – Fri, 9:00am – 6:00pm (MYT)" },
   ];
@@ -40,15 +38,6 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
               </li>
             ))}
           </ul>
-          <div className="overflow-hidden rounded-3xl border">
-            <iframe
-              title="getKerja office location on Google Maps"
-              src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-              className="aspect-[4/3] w-full grayscale-[30%] dark:invert-[90%] dark:hue-rotate-180"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
         </aside>
       </div>
     </>

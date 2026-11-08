@@ -4,18 +4,18 @@
  * Replace with CMS/database records — see README "Managing jobs".
  */
 import type { CategorySlug, ExperienceLevel, JobType } from "../constants";
-import type { BlogPost, Company, Job, Testimonial } from "../types";
+import type { BlogPost, Company, Job } from "../types";
 
 export const seedCompanies: Company[] = [
-  { id: "c1", slug: "lumina-tech", name: "Lumina Tech Sdn Bhd", industry: "Software & SaaS", size: "201–500", website: "https://example.com", verified: true, color: "#4F46E5", founded: 2014, about: "Lumina Tech builds cloud software used by over 3,000 SMEs across Southeast Asia, with a fully remote engineering team spread across Malaysia." },
-  { id: "c2", slug: "harimau-fintech", name: "Harimau Fintech", industry: "Financial Services", size: "51–200", website: "https://example.com", verified: true, color: "#F97316", founded: 2018, about: "Harimau is a digital payments company making cashless payments simple for Malaysian merchants — remote-first since day one." },
-  { id: "c3", slug: "selat-logistics", name: "Selat Logistics Berhad", industry: "Logistics & Freight", size: "1,000+", website: "https://example.com", verified: true, color: "#0D9488", founded: 1996, about: "Selat Logistics runs freight and last-mile delivery networks nationwide, with remote planning, analytics and support teams." },
-  { id: "c4", slug: "bayu-health", name: "Bayu Health Group", industry: "Healthcare", size: "1,000+", website: "https://example.com", verified: true, color: "#E11D48", founded: 2002, about: "Bayu Health runs specialist hospitals and clinics, supported by a remote patient-services and medical records team." },
-  { id: "c6", slug: "nusantara-engineering", name: "Nusantara Engineering", industry: "Engineering Consultancy", size: "201–500", website: "https://example.com", verified: true, color: "#CA8A04", founded: 2005, about: "Multidisciplinary engineering consultancy delivering infrastructure and renewable energy designs — our design studio works remotely." },
-  { id: "c8", slug: "pelita-academy", name: "Pelita Academy", industry: "Online Education", size: "51–200", website: "https://example.com", verified: true, color: "#9333EA", founded: 2012, about: "Pelita Academy delivers live online classes and digital courses to students across Malaysia." },
-  { id: "c10", slug: "cendana-retail", name: "Cendana Retail", industry: "Retail & E-commerce", size: "201–500", website: "https://example.com", verified: true, color: "#DB2777", founded: 2016, about: "Omnichannel lifestyle retailer with a fast-growing online marketplace business run by remote teams." },
-  { id: "c11", slug: "arus-energy", name: "Arus Energy", industry: "Renewable Energy", size: "51–200", website: "https://example.com", verified: true, color: "#0891B2", founded: 2019, about: "Developer and operator of solar assets powering Malaysia's energy transition." },
-  { id: "c12", slug: "kampung-kopi", name: "Kampung Kopi Co.", industry: "Food & Beverage", size: "201–500", website: "https://example.com", verified: true, color: "#78350F", founded: 2015, about: "Homegrown café chain serving Malaysian-roasted coffee, with a remote head-office team." },
+  { id: "c1", slug: "lumina-tech", name: "Lumina Tech Sdn Bhd", industry: "Software & SaaS", size: "201–500", website: "https://example.com", verified: false, color: "#4F46E5", founded: 2014, about: "Lumina Tech builds cloud software used by over 3,000 SMEs across Southeast Asia, with a fully remote engineering team spread across Malaysia." },
+  { id: "c2", slug: "harimau-fintech", name: "Harimau Fintech", industry: "Financial Services", size: "51–200", website: "https://example.com", verified: false, color: "#F97316", founded: 2018, about: "Harimau is a digital payments company making cashless payments simple for Malaysian merchants — remote-first since day one." },
+  { id: "c3", slug: "selat-logistics", name: "Selat Logistics Berhad", industry: "Logistics & Freight", size: "1,000+", website: "https://example.com", verified: false, color: "#0D9488", founded: 1996, about: "Selat Logistics runs freight and last-mile delivery networks nationwide, with remote planning, analytics and support teams." },
+  { id: "c4", slug: "bayu-health", name: "Bayu Health Group", industry: "Healthcare", size: "1,000+", website: "https://example.com", verified: false, color: "#E11D48", founded: 2002, about: "Bayu Health runs specialist hospitals and clinics, supported by a remote patient-services and medical records team." },
+  { id: "c6", slug: "nusantara-engineering", name: "Nusantara Engineering", industry: "Engineering Consultancy", size: "201–500", website: "https://example.com", verified: false, color: "#CA8A04", founded: 2005, about: "Multidisciplinary engineering consultancy delivering infrastructure and renewable energy designs — our design studio works remotely." },
+  { id: "c8", slug: "pelita-academy", name: "Pelita Academy", industry: "Online Education", size: "51–200", website: "https://example.com", verified: false, color: "#9333EA", founded: 2012, about: "Pelita Academy delivers live online classes and digital courses to students across Malaysia." },
+  { id: "c10", slug: "cendana-retail", name: "Cendana Retail", industry: "Retail & E-commerce", size: "201–500", website: "https://example.com", verified: false, color: "#DB2777", founded: 2016, about: "Omnichannel lifestyle retailer with a fast-growing online marketplace business run by remote teams." },
+  { id: "c11", slug: "arus-energy", name: "Arus Energy", industry: "Renewable Energy", size: "51–200", website: "https://example.com", verified: false, color: "#0891B2", founded: 2019, about: "Developer and operator of solar assets powering Malaysia's energy transition." },
+  { id: "c12", slug: "kampung-kopi", name: "Kampung Kopi Co.", industry: "Food & Beverage", size: "201–500", website: "https://example.com", verified: false, color: "#78350F", founded: 2015, about: "Homegrown café chain serving Malaysian-roasted coffee, with a remote head-office team." },
 ];
 
 type JobSeed = {
@@ -38,13 +38,13 @@ const jobSeeds: JobSeed[] = [
   { title: "Content Writer (Entry Level)", company: "c10", category: "writing-content", type: "full-time", exp: "entry", min: 2500, max: 3500, daysAgo: 0, skills: ["Writing", "English", "Research", "Canva"], summary: "Write blog posts, product descriptions and social captions. Fresh grads welcome — we train you.", featured: true },
   { title: "Copywriter (Ads & Social Media)", company: "c1", category: "writing-content", type: "full-time", exp: "junior", min: 3200, max: 4500, daysAgo: 1, skills: ["Copywriting", "Social Media", "Meta Ads", "Bahasa Malaysia"], summary: "Write punchy ad copy, emails and landing pages for SME software campaigns.", featured: true },
   { title: "Freelance Blog Writer", company: "c8", category: "writing-content", type: "freelance", exp: "entry", min: 1000, max: 2500, daysAgo: 3, skills: ["Blogging", "SEO Basics", "Google Docs"], summary: "Write 4–8 study-tips articles a month at your own pace. Paid per article." },
-  { title: "Customer Support Agent (Live Chat)", company: "c10", category: "customer-service", type: "full-time", exp: "entry", min: 2500, max: 3200, daysAgo: 0, skills: ["Live Chat", "English", "Bahasa Malaysia", "Typing"], summary: "Answer shopper questions via live chat and email. No experience needed — full training provided.", featured: true, urgent: true },
+  { title: "Customer Support Agent (Live Chat)", company: "c10", category: "customer-service", type: "full-time", exp: "entry", min: 2500, max: 3200, daysAgo: 0, skills: ["Live Chat", "English", "Bahasa Malaysia", "Typing"], summary: "Answer shopper questions via live chat and email. No experience needed — full training provided.", featured: true },
   { title: "Part-time Support Agent (Evenings)", company: "c2", category: "customer-service", type: "part-time", exp: "entry", min: 1400, max: 2000, daysAgo: 2, skills: ["Customer Service", "Email Support", "Patience"], summary: "Flexible evening shifts helping merchants by email — great for students." },
   { title: "HR & Admin Assistant", company: "c3", category: "hr-admin", type: "full-time", exp: "entry", min: 2400, max: 3200, daysAgo: 1, skills: ["Microsoft Office", "Google Sheets", "Scheduling", "Filing"], summary: "Support onboarding, leave records and scheduling for a nationwide team — all online.", featured: true },
   { title: "Data Entry Admin (Part-time)", company: "c4", category: "hr-admin", type: "part-time", exp: "entry", min: 1200, max: 1800, daysAgo: 4, skills: ["Typing", "Excel", "Attention to Detail"], summary: "Update records and spreadsheets accurately, 4 hours a day, from home." },
   { title: "UI Designer (Junior)", company: "c10", category: "design-creative", type: "full-time", exp: "junior", min: 3500, max: 5000, daysAgo: 1, skills: ["Figma", "UI Design", "Mobile Apps", "Design Systems"], summary: "Design clean screens for our shopping app and website with guidance from senior designers.", featured: true },
   { title: "Social Media Graphic Designer", company: "c12", category: "design-creative", type: "part-time", exp: "entry", min: 1500, max: 2400, daysAgo: 5, skills: ["Canva", "Photoshop", "Instagram", "TikTok"], summary: "Create eye-catching posts and short-video covers for our café brand." },
-  { title: "Healthcare Admin Assistant", company: "c4", category: "healthcare", type: "full-time", exp: "entry", min: 2300, max: 3000, daysAgo: 0, skills: ["Patient Records", "Microsoft Office", "Phone & Email"], summary: "Manage patient appointment requests and records remotely. Training provided.", urgent: true },
+  { title: "Healthcare Admin Assistant", company: "c4", category: "healthcare", type: "full-time", exp: "entry", min: 2300, max: 3000, daysAgo: 0, skills: ["Patient Records", "Microsoft Office", "Phone & Email"], summary: "Manage patient appointment requests and records remotely. Training provided." },
   { title: "Patient Appointment Coordinator", company: "c4", category: "healthcare", type: "part-time", exp: "entry", min: 1500, max: 2200, daysAgo: 3, skills: ["Scheduling", "Customer Service", "Bahasa Malaysia"], summary: "Book and confirm clinic appointments by phone, WhatsApp and email." },
   { title: "Online Maths Tutor (Primary & Secondary)", company: "c8", category: "education", type: "part-time", exp: "entry", min: 1600, max: 2600, daysAgo: 1, skills: ["Mathematics", "Teaching", "Google Meet"], summary: "Teach small online classes after school hours. Lesson plans provided." },
   { title: "Online Class Coordinator", company: "c8", category: "education", type: "full-time", exp: "entry", min: 2500, max: 3200, daysAgo: 2, skills: ["Scheduling", "Google Workspace", "Communication"], summary: "Schedule online classes, support tutors and keep parents updated." },
@@ -53,7 +53,7 @@ const jobSeeds: JobSeed[] = [
   { title: "Mobile Engineer (Flutter)", company: "c2", category: "it-software", type: "contract", exp: "mid", min: 8000, max: 11000, daysAgo: 3, skills: ["Flutter", "Dart", "REST APIs", "CI/CD"], summary: "Build the merchant wallet app powering 120,000 daily transactions.", featured: true },
   { title: "DevOps Engineer", company: "c1", category: "it-software", type: "full-time", exp: "senior", min: 10000, max: 15000, daysAgo: 5, skills: ["Kubernetes", "Terraform", "AWS", "Observability"], summary: "Scale reliable, secure infrastructure for a platform processing millions of invoices." },
   { title: "Data Analyst Intern", company: "c11", category: "it-software", type: "internship", exp: "entry", min: 1500, max: 1800, daysAgo: 3, skills: ["Python", "SQL", "Power BI"], summary: "Analyse solar generation data to help optimise plant performance — 6-month remote internship." },
-  { title: "Finance Executive", company: "c2", category: "finance-accounting", type: "full-time", exp: "junior", min: 3800, max: 5000, daysAgo: 1, skills: ["MFRS", "SST", "Reconciliation", "Excel"], summary: "Own month-end close, reconciliations and SST filings for a fast-growing payments company.", urgent: true },
+  { title: "Finance Executive", company: "c2", category: "finance-accounting", type: "full-time", exp: "junior", min: 3800, max: 5000, daysAgo: 1, skills: ["MFRS", "SST", "Reconciliation", "Excel"], summary: "Own month-end close, reconciliations and SST filings for a fast-growing payments company." },
   { title: "Accounts Payable Specialist", company: "c3", category: "finance-accounting", type: "contract", exp: "entry", min: 2800, max: 3400, daysAgo: 13, skills: ["SAP", "Invoice Processing", "Excel"], summary: "12-month remote contract with possibility of conversion to permanent." },
   { title: "Digital Marketing Specialist", company: "c10", category: "sales-marketing", type: "full-time", exp: "mid", min: 5000, max: 7000, daysAgo: 1, skills: ["Meta Ads", "Google Ads", "TikTok Shop", "GA4"], summary: "Drive growth across marketplaces and social commerce for a top Malaysian lifestyle brand.", featured: true },
   { title: "Bilingual Content Writer (BM / English)", company: "c10", category: "writing-content", type: "part-time", exp: "junior", min: 2200, max: 3000, daysAgo: 4, skills: ["Copywriting", "Bahasa Malaysia", "SEO"], summary: "Write product stories, emails and social captions in both BM and English." },
@@ -61,11 +61,11 @@ const jobSeeds: JobSeed[] = [
   { title: "Freelance Brand Illustrator", company: "c12", category: "design-creative", type: "freelance", exp: "mid", daysAgo: 11, skills: ["Illustration", "Procreate", "Packaging"], summary: "Create seasonal packaging and in-store artwork celebrating Malaysian culture." },
   { title: "Solar PV Design Engineer", company: "c11", category: "engineering", type: "full-time", exp: "junior", min: 4500, max: 6500, daysAgo: 1, skills: ["PVsyst", "AutoCAD", "NEM", "Electrical Design"], summary: "Design rooftop solar systems for commercial clients under Malaysia's NEM programme.", featured: true },
   { title: "CAD Drafter (Civil & Structural)", company: "c6", category: "engineering", type: "contract", exp: "junior", min: 3500, max: 4800, daysAgo: 6, skills: ["AutoCAD", "Revit", "Tekla"], summary: "Produce detailed drawings for infrastructure projects from home." },
-  { title: "Medical Coder (ICD-10)", company: "c4", category: "healthcare", type: "full-time", exp: "junior", min: 3200, max: 4500, daysAgo: 0, skills: ["ICD-10", "Medical Terminology", "Billing"], summary: "Code clinical records accurately for our hospital network — remote, with full training.", urgent: true },
+  { title: "Medical Coder (ICD-10)", company: "c4", category: "healthcare", type: "full-time", exp: "junior", min: 3200, max: 4500, daysAgo: 0, skills: ["ICD-10", "Medical Terminology", "Billing"], summary: "Code clinical records accurately for our hospital network — remote, with full training." },
   { title: "Supply Chain Analyst", company: "c3", category: "logistics", type: "full-time", exp: "junior", min: 4200, max: 6000, daysAgo: 6, skills: ["SQL", "Power BI", "Forecasting", "Excel"], summary: "Turn freight and warehouse data into insights that cut lead times across our network." },
   { title: "Online English Tutor", company: "c8", category: "education", type: "part-time", exp: "entry", min: 1800, max: 2800, daysAgo: 2, skills: ["English", "Lesson Planning", "Zoom"], summary: "Teach small live online classes to secondary students — flexible evening hours." },
   { title: "Instructional Designer", company: "c8", category: "education", type: "full-time", exp: "mid", min: 5000, max: 7000, daysAgo: 7, skills: ["Articulate", "Curriculum Design", "Canva"], summary: "Design engaging digital courses used by thousands of learners." },
-  { title: "Customer Support Associate (Bilingual)", company: "c2", category: "customer-service", type: "full-time", exp: "entry", min: 2800, max: 3500, daysAgo: 0, skills: ["Bahasa Malaysia", "English", "Mandarin", "Zendesk"], summary: "Help merchants succeed via chat and email. Fresh graduates welcome!", urgent: true },
+  { title: "Customer Support Associate (Bilingual)", company: "c2", category: "customer-service", type: "full-time", exp: "entry", min: 2800, max: 3500, daysAgo: 0, skills: ["Bahasa Malaysia", "English", "Mandarin", "Zendesk"], summary: "Help merchants succeed via chat and email. Fresh graduates welcome!" },
   { title: "Virtual Assistant", company: "c12", category: "hr-admin", type: "part-time", exp: "entry", min: 1500, max: 2200, daysAgo: 6, skills: ["Google Workspace", "Scheduling", "Communication"], summary: "Support our leadership team with calendars, documents and coordination." },
   { title: "Talent Acquisition Specialist", company: "c12", category: "hr-admin", type: "full-time", exp: "mid", min: 5000, max: 7000, daysAgo: 4, skills: ["Sourcing", "Interviewing", "LinkedIn Recruiter"], summary: "Recruit and interview great people for our growing café network — all via video." },
 ];
@@ -168,15 +168,6 @@ export function buildSeedJobs(now = Date.now()): Job[] {
   });
 }
 
-export const testimonials: Testimonial[] = [
-  { name: "Nurul Aisyah", role: "Medical Coder", company: "Penang", quote: "Honestly thought it was going to be one of those sites that never reply 😅 Sent my CV on Monday, got a Meet link by Wednesday, offer came the week after. Now I work from home in Penang, best decision this year.", type: "candidate", rating: 5 },
-  { name: "Daniel Lim", role: "Software Engineer", company: "Kuala Lumpur", quote: "Love that the salary is right there on every job. No more going through 3 rounds of interviews only to find out the pay is way off lol.", type: "candidate", rating: 5 },
-  { name: "Priya Ramasamy", role: "Fresh Graduate, Accounting", company: "Selangor", quote: "I was super nervous since it was my first real job interview. The interviewer was really chill and explained everything. Got my first remote job in about 3 weeks, my parents still don't believe I work from my room haha.", type: "candidate", rating: 5 },
-  { name: "Ahmad Faiz", role: "Head of Talent", company: "Logistics company, Selangor", quote: "They did all the screening and online interviews for us. We hired 6 remote analysts in one month, which normally takes us a whole quarter.", type: "employer", rating: 5 },
-  { name: "Grace Wong", role: "HR Director", company: "Healthcare group, Penang", quote: "Every candidate they sent had already been interviewed properly, so we weren't wasting time on no-shows. Our HR team was very happy.", type: "employer", rating: 5 },
-  { name: "Hafiz Rahman", role: "Founder", company: "Tech startup, KL", quote: "Sent them the JD on Monday, had a shortlist by Friday. Not perfect, a couple of profiles weren't a fit, but overall saved me a lot of headache.", type: "employer", rating: 4 },
-];
-
 const longBody = (intro: string, sections: [string, string][]) =>
   `<p>${intro}</p>` + sections.map(([h, p]) => `<h2>${h}</h2>${p}`).join("");
 
@@ -186,7 +177,7 @@ export const blogPosts: BlogPost[] = [
     title: "How to Write a CV That Gets Shortlisted in Malaysia (2026 Guide)",
     excerpt: "Recruiters spend under 10 seconds on a first scan. Here's how to structure your CV so the important bits land immediately.",
     category: "CV Writing",
-    author: { name: "Siti Mariam", role: "Senior Talent Consultant" },
+    author: { name: "getKerja team", role: "Career guides" },
     publishedAt: "2026-10-28",
     readMinutes: 7,
     cover: "/images/blog/cv.svg",
@@ -202,7 +193,7 @@ export const blogPosts: BlogPost[] = [
     title: "12 Interview Questions Malaysian Employers Love to Ask",
     excerpt: "From “Why should we hire you?” to expected salary — model answers and the thinking behind each one.",
     category: "Interview Tips",
-    author: { name: "Jason Teh", role: "Career Coach" },
+    author: { name: "getKerja team", role: "Career guides" },
     publishedAt: "2026-10-20",
     readMinutes: 9,
     cover: "/images/blog/interview.svg",
@@ -218,11 +209,11 @@ export const blogPosts: BlogPost[] = [
     title: "Malaysia Tech Salary Guide 2026: What Engineers Really Earn",
     excerpt: "Benchmark your pay with ranges for software, data and DevOps roles across Klang Valley, Penang and remote.",
     category: "Salary Insights",
-    author: { name: "Aaron Chew", role: "Data & Insights Lead" },
+    author: { name: "getKerja team", role: "Career guides" },
     publishedAt: "2026-10-12",
     readMinutes: 6,
     cover: "/images/blog/salary.svg",
-    body: longBody("Based on anonymised listings and placements on getKerja over the last 12 months, here's how monthly salaries compare. Figures are indicative placeholders — replace with your own market data.", [
+    body: longBody("These are rough, indicative ranges for guidance only. They are not based on getKerja placement data — always compare against current job ads before negotiating.", [
       ["Software engineering", "<ul><li>Junior (1–3 yrs): RM 4,500 – RM 7,000</li><li>Mid (3–5 yrs): RM 7,000 – RM 11,000</li><li>Senior (5+ yrs): RM 11,000 – RM 18,000</li></ul>"],
       ["Data & analytics", "<ul><li>Analyst: RM 4,000 – RM 7,500</li><li>Data Engineer: RM 7,000 – RM 13,000</li></ul>"],
       ["Remote premium", "<p>Remote roles with regional companies pay on average 10–20% more, but often come with contract terms. Always check EPF and leave entitlements.</p>"],
@@ -233,7 +224,7 @@ export const blogPosts: BlogPost[] = [
     title: "5 Hiring Trends Shaping Malaysian Workplaces in 2027",
     excerpt: "Skills-based hiring, hybrid work, and the semiconductor boom in Penang and Kulim — what employers need to know.",
     category: "Hiring Trends",
-    author: { name: "Farah Hanim", role: "Head of Employer Success" },
+    author: { name: "getKerja team", role: "Career guides" },
     publishedAt: "2026-10-02",
     readMinutes: 5,
     cover: "/images/blog/trends.svg",
@@ -250,7 +241,7 @@ export const blogPosts: BlogPost[] = [
     title: "A 30-Day Job Search Plan for Fresh Graduates",
     excerpt: "A week-by-week plan to go from graduation to job offer — with templates and daily habits that work.",
     category: "Job Search",
-    author: { name: "Siti Mariam", role: "Senior Talent Consultant" },
+    author: { name: "getKerja team", role: "Career guides" },
     publishedAt: "2026-09-24",
     readMinutes: 8,
     cover: "/images/blog/search.svg",
@@ -266,7 +257,7 @@ export const blogPosts: BlogPost[] = [
     title: "Writing Job Ads That Attract the Right Talent",
     excerpt: "A practical checklist for employers: titles, salary ranges, inclusive language and the details candidates look for first.",
     category: "Hiring Trends",
-    author: { name: "Farah Hanim", role: "Head of Employer Success" },
+    author: { name: "getKerja team", role: "Career guides" },
     publishedAt: "2026-09-15",
     readMinutes: 5,
     cover: "/images/blog/ads.svg",
