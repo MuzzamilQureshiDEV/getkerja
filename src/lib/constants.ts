@@ -8,21 +8,12 @@ export const SITE = {
   email: "hr@getkerja.my",
   /** Inbox for new applications (CV attached) and contact-form messages. Override with APPLICATIONS_EMAIL. */
   applicationsEmail: process.env.APPLICATIONS_EMAIL ?? "hr@getkerja.my",
-  phone: "+60 3-2700 1234",
-  whatsapp: "60123456789",
   address: {
     street: "Level 23, Menara Kerja, Jalan Ampang",
     city: "Kuala Lumpur",
     postcode: "50450",
     state: "Wilayah Persekutuan Kuala Lumpur",
     country: "MY",
-  },
-  socials: {
-    linkedin: "https://www.linkedin.com/",
-    facebook: "https://www.facebook.com/",
-    instagram: "https://www.instagram.com/",
-    x: "https://x.com/",
-    tiktok: "https://www.tiktok.com/",
   },
 } as const;
 

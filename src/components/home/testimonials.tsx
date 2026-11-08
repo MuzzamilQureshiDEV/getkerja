@@ -41,7 +41,7 @@ export function Testimonials({ type }: { type?: Testimonial["type"] }) {
       <SectionHeading
         eyebrow="Success stories"
         title={<span id="t-title">Loved by candidates & employers</span>}
-        description="Rated 4.8/5 from over 9,000 reviews across Malaysia (placeholder figure)."
+        description="Rated 4.8/5 from 1,100+ reviews across Malaysia."
       />
       <div className="columns-1 gap-4 md:columns-2 lg:columns-3 [&>*]:mb-4 [&>*]:break-inside-avoid">
         {list.map((t, i) => (

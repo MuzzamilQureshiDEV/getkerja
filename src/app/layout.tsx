@@ -56,7 +56,6 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             name: SITE.name,
             url: SITE.url,
             email: SITE.email,
-            telephone: SITE.phone,
             address: {
               "@type": "PostalAddress",
               streetAddress: SITE.address.street,
@@ -64,7 +63,6 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
               postalCode: SITE.address.postcode,
               addressCountry: SITE.address.country,
             },
-            sameAs: Object.values(SITE.socials),
           }}
         />
       </body>

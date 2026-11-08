@@ -169,12 +169,12 @@ export function buildSeedJobs(now = Date.now()): Job[] {
 }
 
 export const testimonials: Testimonial[] = [
-  { name: "Nurul Aisyah", role: "Medical Coder", company: "Penang", quote: "I filled in the form on Monday, got an email with a Google Meet link on Wednesday, and had an offer the following week. No account, no hassle.", type: "candidate", rating: 5 },
-  { name: "Daniel Lim", role: "Software Engineer", company: "Kuala Lumpur", quote: "Salary ranges on every listing saved me so much time. I found a remote role that actually matched my expectations.", type: "candidate", rating: 5 },
-  { name: "Priya Ramasamy", role: "Fresh Graduate, Accounting", company: "Selangor", quote: "As a fresh grad I was nervous, but the process was so simple — one form, one online interview, and I landed my first remote role in 3 weeks.", type: "candidate", rating: 5 },
-  { name: "Ahmad Faiz", role: "Head of Talent", company: "Logistics company, Selangor", quote: "getKerja screened and interviewed candidates for us online. We hired 6 remote analysts in a month.", type: "employer", rating: 5 },
-  { name: "Grace Wong", role: "HR Director", company: "Healthcare group, Penang", quote: "Every candidate they sent us had already been interviewed. It saved our HR team weeks of work.", type: "employer", rating: 5 },
-  { name: "Hafiz Rahman", role: "Founder", company: "Tech startup, KL", quote: "We sent them a job description on Monday and had a shortlist of remote engineers by Friday.", type: "employer", rating: 4 },
+  { name: "Nurul Aisyah", role: "Medical Coder", company: "Penang", quote: "Honestly thought it was going to be one of those sites that never reply 😅 Sent my CV on Monday, got a Meet link by Wednesday, offer came the week after. Now I work from home in Penang, best decision this year.", type: "candidate", rating: 5 },
+  { name: "Daniel Lim", role: "Software Engineer", company: "Kuala Lumpur", quote: "Love that the salary is right there on every job. No more going through 3 rounds of interviews only to find out the pay is way off lol.", type: "candidate", rating: 5 },
+  { name: "Priya Ramasamy", role: "Fresh Graduate, Accounting", company: "Selangor", quote: "I was super nervous since it was my first real job interview. The interviewer was really chill and explained everything. Got my first remote job in about 3 weeks, my parents still don't believe I work from my room haha.", type: "candidate", rating: 5 },
+  { name: "Ahmad Faiz", role: "Head of Talent", company: "Logistics company, Selangor", quote: "They did all the screening and online interviews for us. We hired 6 remote analysts in one month, which normally takes us a whole quarter.", type: "employer", rating: 5 },
+  { name: "Grace Wong", role: "HR Director", company: "Healthcare group, Penang", quote: "Every candidate they sent had already been interviewed properly, so we weren't wasting time on no-shows. Our HR team was very happy.", type: "employer", rating: 5 },
+  { name: "Hafiz Rahman", role: "Founder", company: "Tech startup, KL", quote: "Sent them the JD on Monday, had a shortlist by Friday. Not perfect, a couple of profiles weren't a fit, but overall saved me a lot of headache.", type: "employer", rating: 4 },
 ];
 
 const longBody = (intro: string, sections: [string, string][]) =>

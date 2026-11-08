@@ -1,20 +1,12 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
-import { FacebookIcon, InstagramIcon, LinkedinIcon, TiktokIcon, XIcon } from "@/components/shared/social-icons";
 import { SongketPattern } from "@/components/shared/songket-pattern";
 import { CATEGORIES, JOB_TYPES, SITE } from "@/lib/constants";
 import { getT } from "@/lib/i18n/server";
 
 export async function Footer() {
   const { t } = await getT();
-  const socials = [
-    { href: SITE.socials.linkedin, label: "LinkedIn", Icon: LinkedinIcon },
-    { href: SITE.socials.facebook, label: "Facebook", Icon: FacebookIcon },
-    { href: SITE.socials.instagram, label: "Instagram", Icon: InstagramIcon },
-    { href: SITE.socials.x, label: "X", Icon: XIcon },
-    { href: SITE.socials.tiktok, label: "TikTok", Icon: TiktokIcon },
-  ];
   const quick = [
     { href: "/jobs", label: t.nav.jobs },
     { href: "/employers", label: t.nav.employers },
@@ -33,21 +25,6 @@ export async function Footer() {
           <div className="col-span-2 flex flex-col gap-5 sm:col-span-3 lg:col-span-1">
             <div className="[&_span]:text-white"><Logo /></div>
             <p className="max-w-xs text-sm leading-relaxed text-white/65">{t.footer.blurb}</p>
-            <ul className="flex flex-wrap gap-2" aria-label="Social media">
-              {socials.map(({ href, label, Icon }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${SITE.name} on ${label}`}
-                    className="grid size-11 place-items-center rounded-xl border border-white/10 bg-white/5 transition-colors hover:border-coral hover:bg-coral hover:text-white"
-                  >
-                    <Icon className="size-4" />
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <FooterCol title={t.footer.quickLinks}>
@@ -66,13 +43,12 @@ export async function Footer() {
               <MapPin className="mt-0.5 size-4 shrink-0 text-coral" aria-hidden />
               <address className="not-italic">{SITE.address.street}, {SITE.address.postcode} {SITE.address.city}</address>
             </li>
-            <li><a className="flex items-center gap-2.5 text-sm text-white/65 hover:text-white" href={`tel:${SITE.phone.replace(/[^\d+]/g, "")}`}><Phone className="size-4 text-coral" aria-hidden />{SITE.phone}</a></li>
             <li><a className="flex items-center gap-2.5 text-sm text-white/65 hover:text-white" href={`mailto:${SITE.email}`}><Mail className="size-4 text-coral" aria-hidden />{SITE.email}</a></li>
           </FooterCol>
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/55 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {SITE.name} Sdn. Bhd. (Placeholder Reg. No. 202601000000) · {t.footer.rights}</p>
+          <p>© {new Date().getFullYear()} {SITE.name} Sdn. Bhd. (Reg. No. 20260111) · {t.footer.rights}</p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             <li><Link className="hover:text-white" href="/privacy">{t.footer.privacy}</Link></li>
             <li><Link className="hover:text-white" href="/terms">{t.footer.terms}</Link></li>

@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Clock, Mail, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/forms/contact-form";
 import { PageHero } from "@/components/shared/page-hero";
-import { WhatsappIcon } from "@/components/shared/social-icons";
 import { SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with the getKerja team in Kuala Lumpur. Support for job seekers and employers by phone, email or WhatsApp.",
+  description: "Get in touch with the getKerja team in Kuala Lumpur. Support for job seekers and employers by email or through our contact form.",
   alternates: { canonical: "/contact" },
 };
 
@@ -18,7 +16,6 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
   const mapQuery = encodeURIComponent(`${SITE.address.street}, ${SITE.address.city}`);
   const items = [
     { Icon: MapPin, label: "Office", value: `${SITE.address.street}, ${SITE.address.postcode} ${SITE.address.city}, Malaysia`, href: `https://maps.google.com/?q=${mapQuery}` },
-    { Icon: Phone, label: "Phone", value: SITE.phone, href: `tel:${SITE.phone.replace(/[^\d+]/g, "")}` },
     { Icon: Mail, label: "Email", value: SITE.email, href: `mailto:${SITE.email}` },
     { Icon: Clock, label: "Office hours", value: "Mon – Fri, 9:00am – 6:00pm (MYT)" },
   ];
@@ -43,11 +40,6 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
               </li>
             ))}
           </ul>
-          <Button asChild size="lg" className="bg-[#25D366] text-white hover:bg-[#1ebe5b]">
-            <a href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi getKerja, I have a question about…")}`} target="_blank" rel="noopener noreferrer">
-              <WhatsappIcon className="size-5" /> Chat on WhatsApp
-            </a>
-          </Button>
           <div className="overflow-hidden rounded-3xl border">
             <iframe
               title="getKerja office location on Google Maps"
