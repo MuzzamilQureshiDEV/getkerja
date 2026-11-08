@@ -28,7 +28,10 @@ export async function contactAction(_: ActionState, fd: FormData): Promise<Actio
   // TODO(prod): verify Cloudflare Turnstile / reCAPTCHA token here — see README.
   const { name, email, topic, message } = parsed.data;
   db.messages.add({ name, email, topic, message });
-  await sendEmail({ to: SITE.email, replyTo: email, subject: `[Contact:${topic}] ${name}`, text: `${name} <${email}>\n\n${message}` });
+  const sent = await sendEmail({ to: SITE.email, replyTo: email, subject: `[Contact:${topic}] ${name}`, text: `${name} <${email}>\n\n${message}` });
+  if (!sent.ok) {
+    return { ok: false, message: `We couldn’t send your message just now. Please email us directly at ${SITE.email}.` };
+  }
   return { ok: true, message: "Thanks! We'll get back to you within 1 business day." };
 }
 

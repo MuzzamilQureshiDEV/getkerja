@@ -21,6 +21,11 @@ export async function sendEmail({
 }) {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM ?? "getKerja <onboarding@resend.dev>";
+  if (!key && process.env.NODE_ENV === "production") {
+    // Never pretend an email was sent in production — the caller shows a fallback message instead.
+    console.error(`[email] RESEND_API_KEY is not set — could not send "${subject}" to ${to}`);
+    return { ok: false, dev: false };
+  }
   if (!key) {
     const files = attachments?.map((a) => `${a.filename} (${a.content.byteLength} bytes)`).join(", ");
     console.info(
