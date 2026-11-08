@@ -38,7 +38,7 @@ const GROUPS = [
     title: "Privacy",
     items: [
       { q: "Who can see my CV?", a: "Only our recruitment team and the company hiring for the role you applied to. We never sell your data. Read our Privacy Notice for details on how we comply with the PDPA 2010." },
-      { q: "How do I ask you to delete my data?", a: "Email privacy@getkerja.my and we’ll delete your application and CV within 21 days, as required by the PDPA." },
+      { q: "How do I ask you to delete my data?", a: "Email hr@getkerja.my and we’ll delete your application and CV within 21 days, as required by the PDPA." },
     ],
   },
 ];

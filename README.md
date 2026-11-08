@@ -36,8 +36,8 @@ Without `RESEND_API_KEY`, emails are **printed to the terminal** instead of sent
 2. In `.env.local` (and in your hosting provider's environment variables):
    ```bash
    RESEND_API_KEY=re_xxxxxxxx
-   EMAIL_FROM="getKerja <careers@yourdomain.my>"
-   APPLICATIONS_EMAIL=careers@yourdomain.my
+   EMAIL_FROM="getKerja <hr@getkerja.my>"
+   APPLICATIONS_EMAIL=hr@getkerja.my
    ```
 3. Restart the server. Applications will now arrive in that inbox with the CV attached.
 

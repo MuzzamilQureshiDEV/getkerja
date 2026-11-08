@@ -85,7 +85,7 @@ export default function PrivacyPage() {
       <h2 id="contact">10. Contact our Data Protection Officer</h2>
       <p>
         Data Protection Officer, {SITE.name} Sdn. Bhd., {SITE.address.street}, {SITE.address.postcode} {SITE.address.city}.<br />
-        Email: <a href="mailto:privacy@getkerja.my">privacy@getkerja.my</a> · Phone: {SITE.phone}
+        Email: <a href="mailto:hr@getkerja.my">hr@getkerja.my</a> · Phone: {SITE.phone}
       </p>
     </LegalLayout>
   );

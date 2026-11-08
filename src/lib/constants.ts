@@ -4,9 +4,9 @@ export const SITE = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   description:
     "Find remote jobs open to candidates across Malaysia. Pick a role, send your CV in one simple form, and interview online — no account needed.",
-  email: "hello@getkerja.my",
+  email: "hr@getkerja.my",
   /** Inbox for new applications (CV attached) and contact-form messages. Override with APPLICATIONS_EMAIL. */
-  applicationsEmail: process.env.APPLICATIONS_EMAIL ?? "info@websaura.com",
+  applicationsEmail: process.env.APPLICATIONS_EMAIL ?? "hr@getkerja.my",
   phone: "+60 3-2700 1234",
   whatsapp: "60123456789",
   address: {
