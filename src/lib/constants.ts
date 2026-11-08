@@ -1,7 +1,8 @@
 export const SITE = {
   name: "getKerja",
   tagline: "Remote jobs for Malaysians",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  // Canonical URLs, sitemap and email links. Override with NEXT_PUBLIC_SITE_URL.
+  url: process.env.NEXT_PUBLIC_SITE_URL || (process.env.NODE_ENV === "production" ? "https://getkerja.my" : "http://localhost:3000"),
   description:
     "Find remote jobs open to candidates across Malaysia. Pick a role, send your CV in one simple form, and interview online — no account needed.",
   email: "hr@getkerja.my",
