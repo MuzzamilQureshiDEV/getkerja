@@ -16,10 +16,10 @@ export const SITE = {
  */
 export const SELECTION = {
   feeMin: 50,
-  feeMax: 70,
+  feeMax: 100,
   offerDays: 5,
 } as const;
-// Non-breaking space + word joiners keep "RM 50–70" on one line.
+// Non-breaking space + word joiners keep "RM 50–100" on one line.
 export const FEE_TEXT = `RM ${SELECTION.feeMin}⁠–⁠${SELECTION.feeMax}`;
 
 /** All roles are remote. Candidates must be based in Malaysia. */
