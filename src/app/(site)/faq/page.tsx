@@ -21,7 +21,7 @@ const GROUPS = [
       { q: "When will I know if I’m selected?", a: `Selected candidates receive their job offer by email within ${SELECTION.offerDays} working days and can then start working remotely.` },
       { q: "Do I need an account to apply?", a: "No. Just fill in the application form, attach your CV and choose the job. There’s nothing to sign up for." },
       { q: "Are all jobs remote?", a: "Yes. Every job on getKerja is remote, open to candidates based anywhere in Malaysia." },
-      { q: "What CV formats are accepted?", a: "PDF, DOC and DOCX up to 5 MB. PDF is recommended so your formatting stays intact." },
+      { q: "What CV formats are accepted?", a: "PDF, DOC and DOCX up to 4 MB. PDF is recommended so your formatting stays intact." },
       { q: "What happens after I apply?", a: `You’ll get a confirmation email straight away. Our recruiters review your CV, and if you’re shortlisted we reply with a Google Meet link for your online interview. Based on the interview, a ${FEE_TEXT} selection fee locks in your place in the selection process, and selected candidates receive their offer within ${SELECTION.offerDays} working days.` },
       { q: "How long until I hear back?", a: "Usually within 2–3 working days. If you haven’t heard from us after a week, the role may have been filled — feel free to apply for others." },
       { q: "Can I apply for more than one job?", a: "Yes — submit the form once for each job you’re interested in." },

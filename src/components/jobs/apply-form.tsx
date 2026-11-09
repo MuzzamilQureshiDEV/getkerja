@@ -13,7 +13,7 @@ import { Field, FormMessage } from "@/components/forms/field";
 import { FileDrop } from "@/components/forms/file-drop";
 import { useFormAction } from "@/hooks/use-form-action";
 import { applyAction } from "@/lib/actions/apply";
-import { CV_MAX_BYTES, FEE_TEXT, MY_STATES, NOTICE_PERIODS, OTHER, SALARY_RANGES, SELECTION } from "@/lib/constants";
+import { CV_MAX_BYTES, CV_MAX_MB, FEE_TEXT, MY_STATES, NOTICE_PERIODS, OTHER, SALARY_RANGES, SELECTION } from "@/lib/constants";
 import { formatMyMobile, myMobileDigits } from "@/lib/phone";
 import type { ActionState } from "@/lib/types";
 
@@ -84,7 +84,6 @@ export function ApplyForm({ jobs, defaultJobId }: { jobs: JobOption[]; defaultJo
                   type="tel"
                   inputMode="numeric"
                   autoComplete="tel-national"
-                  maxLength={12}
                   placeholder="12-345 6789"
                   value={phone}
                   onChange={(e) => setPhone(formatMyMobile(myMobileDigits(e.target.value)))}
@@ -107,7 +106,7 @@ export function ApplyForm({ jobs, defaultJobId }: { jobs: JobOption[]; defaultJo
               accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               maxBytes={CV_MAX_BYTES}
               label="Drag & drop your CV here, or"
-              hint="PDF, DOC or DOCX · max 5 MB"
+              hint={`PDF, DOC or DOCX · max ${CV_MAX_MB} MB`}
               invalid={p["aria-invalid"]}
               describedBy={p["aria-describedby"]}
             />

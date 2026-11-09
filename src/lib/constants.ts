@@ -100,7 +100,9 @@ export const NOTICE_PERIODS = ["Immediately", "1 week", "2 weeks", "1 month", "2
 export const OTHER = "other";
 
 export const JOBS_PER_PAGE = 8;
-export const CV_MAX_BYTES = 5 * 1024 * 1024;
+// Vercel rejects request bodies over 4.5 MB, so the CV (plus form fields) must stay under that.
+export const CV_MAX_MB = 4;
+export const CV_MAX_BYTES = CV_MAX_MB * 1024 * 1024;
 
 export function labelOf<T extends { value: string; label: string }>(list: readonly T[], value: string | undefined | null) {
   return list.find((i) => i.value === value)?.label ?? value ?? "";

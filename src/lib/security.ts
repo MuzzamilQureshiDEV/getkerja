@@ -1,6 +1,6 @@
 import "server-only";
 import { headers } from "next/headers";
-import { CV_MAX_BYTES } from "./constants";
+import { CV_MAX_BYTES, CV_MAX_MB } from "./constants";
 
 /* ---------- Rate limiting (in-memory, per instance) ----------
  * For multi-instance production use Upstash Ratelimit / Redis. */
@@ -33,7 +33,7 @@ export async function validateCv(
   file: File | null,
 ): Promise<{ ok: true; bytes: Uint8Array; name: string } | { ok: false; error: string }> {
   if (!file || file.size === 0) return { ok: false, error: "Please upload your CV" };
-  if (file.size > CV_MAX_BYTES) return { ok: false, error: "CV must be under 5 MB" };
+  if (file.size > CV_MAX_BYTES) return { ok: false, error: `CV must be under ${CV_MAX_MB} MB` };
   const ext = file.name.split(".").pop()?.toLowerCase() ?? "";
   const t = CV_TYPES[ext];
   if (!t) return { ok: false, error: "Allowed formats: PDF, DOC, DOCX" };
