@@ -14,7 +14,7 @@ import { Field, FormMessage } from "@/components/forms/field";
 import { useFormAction } from "@/hooks/use-form-action";
 import { assessmentAction } from "@/lib/actions/assessment";
 import {
-  CATEGORIES, EDUCATION_LEVELS, ENGLISH_LEVELS, EQUIPMENT, INTERVIEW_TIMES, MY_STATES, SITE, STUDENT_STATUS, TIME_IN_MALAYSIA, WEEKLY_HOURS,
+  CATEGORIES, EDUCATION_LEVELS, FEE_TEXT, ENGLISH_LEVELS, EQUIPMENT, INTERVIEW_TIMES, MY_STATES, SITE, STUDENT_STATUS, TIME_IN_MALAYSIA, WEEKLY_HOURS,
 } from "@/lib/constants";
 import { formatMyMobile, myMobileDigits } from "@/lib/phone";
 import type { ActionState } from "@/lib/types";
@@ -96,7 +96,7 @@ export function AssessmentForm() {
           <label className="flex items-start gap-3 text-sm">
             <Checkbox name="consent" value="on" id="consent" className="mt-0.5" aria-invalid={fe.consent ? true : undefined} aria-describedby={fe.consent ? "consent-err" : undefined} />
             <span>
-              I agree that getKerja may process my details for this assessment, in line with the{" "}
+              I understand that the assessment is free and that, after an interview, a {FEE_TEXT} selection fee applies if I choose to continue. I agree that getKerja may process my details for this assessment, in line with the{" "}
               <Link href="/privacy#pdpa" className="font-medium text-primary underline underline-offset-4" target="_blank">Privacy Notice (PDPA 2010)</Link>.
             </span>
           </label>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ClipboardCheck, Lock, MailCheck, Video } from "lucide-react";
 import { AssessmentForm } from "@/components/forms/assessment-form";
 import { PageHero } from "@/components/shared/page-hero";
+import { FEE_TEXT } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Candidate Assessment",
@@ -12,17 +13,13 @@ export const metadata: Metadata = {
 const STEPS = [
   { Icon: ClipboardCheck, title: "Fill in the assessment", body: "Mostly tap-to-choose — takes about 3 minutes." },
   { Icon: MailCheck, title: "Check your email", body: "We send your assessment interview meeting link by email." },
-  { Icon: Video, title: "Join the interview", body: "Meet our team online from anywhere in Malaysia." },
+  { Icon: Video, title: "Join the interview", body: `Meet our team online. After the interview, a ${FEE_TEXT} selection fee locks in your place.` },
 ];
 
 export default function AssessmentPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Candidate Assessment"
-        title={<>Tell us about <span className="text-gradient">yourself</span></>}
-        description="A short assessment so we can match you with the right remote work. No CV needed for this step."
-      />
+      <PageHero title={<>Assessment <span className="text-gradient">Form</span></>} />
       <div className="container-page grid gap-8 py-10 lg:grid-cols-[1fr_320px] lg:py-14">
         <div className="relative min-w-0">
           <AssessmentForm />
@@ -41,6 +38,9 @@ export default function AssessmentPage() {
                 </li>
               ))}
             </ol>
+          </div>
+          <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 text-xs text-foreground">
+            <strong>The assessment is free.</strong> The {FEE_TEXT} selection fee is only requested after your interview — we confirm the exact amount by email first.
           </div>
           <div className="flex items-start gap-2 rounded-2xl bg-secondary/60 p-4 text-xs text-muted-foreground">
             <Lock className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
