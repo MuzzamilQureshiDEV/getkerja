@@ -26,9 +26,6 @@ export function LegalLayout({
           </div>
         </nav>
         <div className="prose-article max-w-3xl [&_h2]:scroll-mt-24">
-          <p className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-foreground">
-            <strong>Template notice:</strong> This document is placeholder content to help you get started. Have it reviewed by a Malaysian legal professional before launch.
-          </p>
           {children}
         </div>
       </div>
