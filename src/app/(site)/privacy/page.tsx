@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LegalLayout } from "@/components/shared/legal-layout";
-import { SITE } from "@/lib/constants";
+import { FEE_TEXT, SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy Policy & PDPA Notice",
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
       <ol>
         <li>To receive and assess your job application and CV.</li>
         <li>To contact you by email, including sending a Google Meet link for an online interview.</li>
-        <li>To share shortlisted applications with the hiring company for the role you applied to.</li>
+        <li>To share shortlisted applications with the hiring company for the role you applied to. After the interview, candidates who continue in the selection process pay a platform fee of {FEE_TEXT}.</li>
         <li>To send newsletters you have subscribed to (you can unsubscribe anytime).</li>
         <li>To verify Employers and prevent fraud, spam and misuse.</li>
         <li>To improve our services through aggregated, anonymised analytics.</li>
