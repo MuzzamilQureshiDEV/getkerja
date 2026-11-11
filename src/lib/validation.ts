@@ -1,5 +1,8 @@
 import { z } from "zod";
-import { MY_STATES, NOTICE_PERIODS, OTHER, SALARY_RANGES } from "./constants";
+import {
+  CATEGORIES, EDUCATION_LEVELS, ENGLISH_LEVELS, EQUIPMENT, INTERVIEW_TIMES, MY_STATES, NOTICE_PERIODS, OTHER, SALARY_RANGES,
+  STUDENT_STATUS, TIME_IN_MALAYSIA, WEEKLY_HOURS,
+} from "./constants";
 import { formatMyMobile, myMobileDigits } from "./phone";
 
 // Malaysian mobile: 01X-XXX XXXX, or 011/015-XXXX XXXX. Stored as "+60 12-345 6789".
@@ -47,6 +50,24 @@ export const applicationSchema = z
       salary === OTHER ? `RM ${Number(salaryOther.replace(/[,\s]|^RM/gi, "")).toLocaleString("en-MY")} / month` : salary ? `${salary} / month` : "",
     noticePeriod: notice === OTHER ? noticeOther : notice,
   }));
+
+export const assessmentSchema = z.object({
+  name,
+  email,
+  phone,
+  location: z.enum(MY_STATES, { error: "Choose the state you're based in" }),
+  timeInMalaysia: z.enum(TIME_IN_MALAYSIA, { error: "Choose how long you've been in Malaysia" }),
+  student: z.enum(STUDENT_STATUS, { error: "Tell us if you're a student" }),
+  education: z.enum(EDUCATION_LEVELS, { error: "Choose your highest education" }),
+  english: z.enum(ENGLISH_LEVELS, { error: "Choose your English level" }),
+  role: z.enum(CATEGORIES.map((c) => c.slug) as [string, ...string[]], { error: "Choose the kind of work you want" }),
+  hours: z.enum(WEEKLY_HOURS, { error: "Choose how many hours you can work" }),
+  equipment: z.array(z.enum(EQUIPMENT)).default([]),
+  interviewTime: z.enum(INTERVIEW_TIMES, { error: "Choose a time that suits you" }),
+  notes: z.string().trim().max(1000, "Keep it under 1,000 characters").optional().default(""),
+  consent: z.literal("on", { error: "Please consent so we can process your assessment" }),
+  website: z.string().max(0).optional(), // honeypot
+});
 
 export const contactSchema = z.object({
   name,

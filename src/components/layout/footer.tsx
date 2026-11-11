@@ -11,6 +11,7 @@ export async function Footer() {
     { href: "/jobs", label: t.nav.jobs },
     { href: "/employers", label: t.nav.employers },
     { href: "/apply", label: t.nav.apply },
+    { href: "/assessment", label: t.nav.assessment },
     { href: "/about", label: t.nav.about },
     { href: "/blog", label: t.nav.blog },
     { href: "/faq", label: t.footer.faq },

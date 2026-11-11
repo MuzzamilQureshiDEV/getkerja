@@ -7,6 +7,7 @@ export const en = {
     blog: "Career Advice",
     contact: "Contact",
     apply: "Apply Now",
+    assessment: "Candidate Assessment",
   },
   hero: {
     badge: "100% remote jobs · Malaysia",

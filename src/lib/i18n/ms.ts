@@ -10,6 +10,7 @@ export const ms: typeof en = {
     blog: "Nasihat Kerjaya",
     contact: "Hubungi",
     apply: "Mohon Sekarang",
+    assessment: "Penilaian Calon",
   },
   hero: {
     badge: "100% kerja jarak jauh · Malaysia",

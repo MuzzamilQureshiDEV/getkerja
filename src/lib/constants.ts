@@ -110,3 +110,12 @@ export function labelOf<T extends { value: string; label: string }>(list: readon
 export function categoryName(slug: string) {
   return CATEGORIES.find((c) => c.slug === slug)?.name ?? slug;
 }
+
+/* ── Candidate assessment form options ── */
+export const TIME_IN_MALAYSIA = ["Malaysian citizen", "Less than 6 months", "6–12 months", "1–3 years", "More than 3 years"] as const;
+export const STUDENT_STATUS = ["Yes, full-time student", "Yes, part-time student", "No, not a student"] as const;
+export const EDUCATION_LEVELS = ["SPM or below", "STPM / Diploma", "Bachelor’s degree", "Master’s or higher"] as const;
+export const ENGLISH_LEVELS = ["Basic", "Good", "Fluent"] as const;
+export const WEEKLY_HOURS = ["Under 10 hours", "10–20 hours", "20–40 hours", "Full-time (40+)"] as const;
+export const EQUIPMENT = ["Laptop / PC", "Stable internet", "Smartphone"] as const;
+export const INTERVIEW_TIMES = ["Morning (9am–12pm)", "Afternoon (12pm–5pm)", "Evening (5pm–9pm)"] as const;

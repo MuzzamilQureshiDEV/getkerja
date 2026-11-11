@@ -8,7 +8,7 @@ export const revalidate = 3600;
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const base = SITE.url;
-  const statics = ["", "/jobs", "/apply", "/employers", "/about", "/contact", "/blog", "/faq", "/privacy", "/terms"].map((p) => ({
+  const statics = ["", "/jobs", "/apply", "/assessment", "/employers", "/about", "/contact", "/blog", "/faq", "/privacy", "/terms"].map((p) => ({
     url: `${base}${p}`,
     lastModified: now,
     changeFrequency: p === "/jobs" || p === "" ? ("hourly" as const) : ("monthly" as const),
