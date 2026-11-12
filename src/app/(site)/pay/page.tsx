@@ -15,7 +15,7 @@ const STEPS = [
   "Tap “Save QR to your phone”.",
   "Open Touch ’n Go eWallet (or any banking app with DuitNow QR) and tap Scan.",
   "Tap the gallery / photo icon and choose the saved QR.",
-  "Check the name shows QURESHI MUZAMMIL AHMED GETKERJA, enter the amount we emailed you, and pay.",
+  "Check the name shows QURESHI MUZAMMIL AHMED GETKERJA, enter the amount we gave you during your interview or by email, and pay.",
   `Email a screenshot of your receipt with your full name to ${SITE.applicationsEmail}.`,
 ];
 
@@ -30,7 +30,7 @@ export default function PayPage() {
           <div className="flex gap-3 rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm text-foreground">
             <ShieldAlert className="mt-0.5 size-5 shrink-0 text-amber-600" aria-hidden />
             <p>
-              <strong>Only pay after your interview</strong>, and only the exact amount we confirmed to you by email from {SITE.applicationsEmail} (between{" "}
+              <strong>Only pay after your interview</strong>, and only the exact amount we confirmed to you during your interview or by email from {SITE.applicationsEmail} (between{" "}
               {FEE_TEXT}). If you haven’t had an interview with us yet, please don’t pay.
             </p>
           </div>
